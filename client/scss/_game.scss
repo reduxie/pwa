@@ -1,5 +1,5 @@
 body {
-  background: $lightBlue;
+  background: maroon;
 }
 
 #board {
@@ -32,5 +32,4 @@ body {
   &:hover {
     background-color: darken(white, 15);
   }
-
 }

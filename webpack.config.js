@@ -6,7 +6,7 @@ module.exports = {
     path: path.join(__dirname, '/build'),
     filename: './bundle.js',
   },
-  mode: 'production',
+  mode: process.env.NODE_ENV,
   module: {
     rules: [
       // BABEL
@@ -23,7 +23,34 @@ module.exports = {
 
         }
       },
+      {
+        test: /\.(scss|css)$/,
+        exclude: /(node_modules)/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader'
+          },
+          {
+            loader: 'sass-loader'
+          },
+        ]
+      },
     ],
 
   },
+  devServer: {
+    port: 8080,
+    proxy: {
+      '/api': 'http://localhost:3000/',
+      "changeOrigin": true,
+      // pathRewrite: { '^/api': '' }
+    },
+    publicPath: '/build/'
+    // contentBase: path.join(__dirname, 'build'),
+    // compress: true,
+    // port: 8080
+  }
 }
