@@ -21,11 +21,14 @@ app.use(function (req, res, next) {
 });
 
 // statically serve everything in the build folder on the route '/build'
-app.use('/build', express.static(path.join(__dirname, '../build')));
-// serve index.html on the route '/'
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../index.html'));
-});
+if (process.env.NODE_ENV === 'production') {
+  console.log("using production mode")
+  app.use('/build', express.static(path.join(__dirname, '../build')));
+  // serve index.html on the route '/'
+  app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../index.html'));
+  })
+}
 
 app.listen(3000); //listens on port 3000 -> http://localhost:3000/
 
