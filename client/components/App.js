@@ -20,6 +20,7 @@ import AppBar from './AppBar';
 import Paper from './Paper';
 import JobList from './JobList';
 import OutlinedButton from './OutlinedButton';
+import axios from 'axios';
 
 const styles = theme => ({
   root: {
@@ -190,8 +191,8 @@ class InteractiveList extends React.Component {
   };
 
   handleToggle = value => () => {
-    const checked = this.state.checked;
-    const currentIndex = checked.indexOf(value);
+    const job = this.state.jobsArray;
+    const currentIndex = job.indexOf(value);
     const newChecked = [ ...checked ];
 
     if (currentIndex === -1) {
@@ -215,7 +216,7 @@ class InteractiveList extends React.Component {
         <AppBar
           state={this.state}
 
-          />
+        />
         <Grid container spacing={16}>
           <Grid item xs={12} md={6}>
             <Typography
@@ -230,7 +231,8 @@ class InteractiveList extends React.Component {
                 jobsArray={this.state.jobsArray}
                 checked={this.state.checked}
                 handleToggle={this.handleToggle}
-                />
+                postLink={this.postLink}
+              />
             </div>
           </Grid>
           <Grid
