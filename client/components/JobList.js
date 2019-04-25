@@ -19,44 +19,57 @@ const styles = theme => ({
 
 class CheckboxList extends React.Component {
   state = {
-    checked: [ 0 ],
+    checked: [ 0 ] //all checked list items,
+
   };
 
-  handleToggle = value => () => {
-    const { checked } = this.state;
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [ ...checked ];
+  getLink = value => () => {
+    // const { link } =
+  }
 
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
 
-    this.setState({
-      checked: newChecked,
-    });
-  };
+  // handleToggle = value => () => {
+  //   const { checked } = this.state;
+  //   const currentIndex = checked.indexOf(value);
+  //   const newChecked = [ ...checked ];
 
+  //   if (currentIndex === -1) {
+  //     newChecked.push(value);
+  //   } else {
+  //     newChecked.splice(currentIndex, 1);
+  //   }
+
+  //   this.setState({
+  //     checked: newChecked,
+  //   });
+  // };
   render() {
+    const jobsArray = this.props.jobsArray
     const { classes } = this.props;
-
+    // const j1 = this.props.jobsArray[ 0 ].jobTitle;
+    // const j2 = this.props.jobsArray[ 1 ].jobTitle;
     return (
       <List className={classes.root}>
-        {[ 0, 1, 2, 3 ].map(value => (
-          <ListItem key={value} role={undefined} dense button onClick={this.handleToggle(value)}>
+        {jobsArray.map(value => (
+          <ListItem
+            key={value}
+            role={undefined}
+            dense
+            button
+            onClick={this.props.handleToggle(value)}>
             <Checkbox
-              checked={this.state.checked.indexOf(value) !== -1}
+              checked={this.props.checked.indexOf(value) !== -1}
               tabIndex={-1}
             // disableRipple
             />
             <ListItemText
-              primary={`Job: ${value + 1}`}
-              secondary="Company:"
+              primary={`${value.jobTitle}`}
+              secondary={`${value.companyTitle}`}
             />
 
             <ListItemSecondaryAction>
-              <IconButton aria-label="Comments">
+              <IconButton
+                aria-label="Comments">
                 {/* <CommentIcon /> */}
               </IconButton>
             </ListItemSecondaryAction>

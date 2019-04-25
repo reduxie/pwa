@@ -64,7 +64,7 @@ const scraperController = {
     } catch (err) {
       console.error(err)
     }
-  }
+  },
 
   getOnePost: async (req, res, next) => {
     try {
