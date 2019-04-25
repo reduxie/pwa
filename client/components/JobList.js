@@ -48,12 +48,16 @@ class CheckboxList extends React.Component {
             <Checkbox
               checked={this.state.checked.indexOf(value) !== -1}
               tabIndex={-1}
-              disableRipple
+            // disableRipple
             />
-            <ListItemText primary={`Line item ${value + 1}`} />
+            <ListItemText
+              primary={`Job: ${value + 1}`}
+              secondary="Company:"
+            />
+
             <ListItemSecondaryAction>
               <IconButton aria-label="Comments">
-                <CommentIcon />
+                {/* <CommentIcon /> */}
               </IconButton>
             </ListItemSecondaryAction>
           </ListItem>

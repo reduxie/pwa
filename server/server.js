@@ -47,54 +47,15 @@ app.get('/scrape',
   }
 );
 
-app.listen(3000); //listens on port 3000 -> http://localhost:3000/
-
-/*
-
-
-"use strict";
-
-const express = require('express');
-// const fs = require("fs");
-const path = require('path');
-const app = express();
+app.get('/getpost',
+  scraperController.getOnePost,
+  // (req, res) => {
+  //   console.log('\n\nSECOND!!!\n\n', res.locals)
+  //   res.send(res.locals)
+  // }
+);
+app.listen(3000);
 
 
 
-// > CORS
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
 
-app.use('/jobs', require('../controllers/dbController'));
-
-app.use(bodyParser.urlencoded({ extended: false }));
-
-if (process.env.NODE_ENV === 'production') {
-  console.log("using production mode")
-  app.use('/build', express.static(path.join(__dirname, '../build')));
-  // serve index.html on the route '/'
-  app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../index.html'));
-  })
-}
-
-// app.get('/',
-//   scraperController.getData, scraperController.allPostings,
-//   scraperController.getDetails,
-//   (req, res) => {
-//     console.log('\n\nSECOND!!!\n\n', res.locals)
-//     res.send(res.locals)
-//   }
-// );
-
-
-
-app.listen(3000, () => {
-  console.log(`Server started on port: 3000`)
-});
-
-
-*/

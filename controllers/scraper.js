@@ -66,6 +66,31 @@ const scraperController = {
     }
   }
 
+  getOnePost: async (req, res, next) => {
+    try {
+      console.log('hello');
+      // res.locals.forEach(async (el, i, arr) => {
+      //   const response = await axios.get(el.link);
+      //   const $ = await cheerio.load(response.data);
+
+      //   const objWrapper = JSON.parse($('script[type="application/ld+json"]').html());
+      //   const entry = objWrapper[ '@graph' ][ 0 ]
+      //   const address = entry.jobLocation.address;
+      //   const description = entry.description;
+      //   const datePosted = new Date(entry.datePosted);
+
+      //   arr[ i ].datePosted = datePosted;
+      //   arr[ i ].address = address;
+      //   arr[ i ].description = description;
+
+      //   console.log('\n\nFIRST!!!\n\n', i)
+      //   return res.locals;
+      // })
+      return next();
+    } catch (err) {
+      console.error(err)
+    }
+  }
 };
 
 module.exports = scraperController;
