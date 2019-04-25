@@ -9,8 +9,7 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import { withStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import OutlinedButton from './OutlinedButton';
-
+import Button from './OutlinedButton'
 
 const styles = theme => ({
   root: {
@@ -81,14 +80,10 @@ function SearchAppBar(props) {
           <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
             <MenuIcon />
           </IconButton>
-          <Typography
-            className={classes.title}
-            variant="headline"
-            color="inherit"
-            noWrap>
+          <Typography className={classes.title} variant="h6" color="inherit" noWrap>
             NYC Dev Jobs
           </Typography>
-          <OutlinedButton />
+          <Button />
           <div className={classes.grow} />
           <div className={classes.search}>
             <div className={classes.searchIcon}>

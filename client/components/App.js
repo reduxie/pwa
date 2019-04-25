@@ -201,9 +201,6 @@ class InteractiveList extends React.Component {
       newChecked.splice(currentIndex, 1);
     }
 
-    this.setState({
-      checked: newChecked,
-    });
   };
 
   render() {
@@ -219,13 +216,9 @@ class InteractiveList extends React.Component {
         />
         <Grid container spacing={16}>
           <Grid item xs={12} md={6}>
-            <Typography
-              variant="overline"
-              className={classes.title}
-            >
+            <Typography variant="overline" className={classes.title}>
               Job Postings
             </Typography>
-            {/* <OutlinedButton /> */}
             <div className={classes.demo}>
               <JobList
                 jobsArray={this.state.jobsArray}
@@ -235,16 +228,11 @@ class InteractiveList extends React.Component {
               />
             </div>
           </Grid>
-          <Grid
-            item xs={12}
-            md={6}>
-            <Typography
-              variant="h6"
-              className={classes.title}>
+          <Grid item xs={12} md={6}>
+            <Typography variant="h6" className={classes.title}>
               ...
             </Typography>
-            <Paper
-              jobsArray={this.state.jobsArray} />
+            <Paper />
           </Grid>
         </Grid>
       </div>

@@ -14,22 +14,14 @@ const styles = theme => ({
 
 function PaperSheet(props) {
   const { classes } = props;
-  const description = props.jobsArray[ 0 ].description;
-  const jobTitle = props.jobsArray[ 0 ].jobTitle;
+
   return (
     <div>
-      <Paper
-        className={classes.root}
-        elevation={1}
-        description={description}
-      >
+      <Paper className={classes.root} elevation={1}>
         <Typography variant="overline" component="h3">
-          <h3>{jobTitle}</h3>
+          <h3>This is where individual job descriptions will go.</h3>
         </Typography>
-        <Typography
-          variant="body2"
-          component="p">
-          {description}
+        <Typography variant="body2" component="p">
           Paper can be used to build surface or other elements for your application.
           Paper can be used to build surface or other elements for your application.
           Paper can be used to build surface or other elements for your application.
