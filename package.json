@@ -25,12 +25,22 @@
     ]
   },
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@material-ui/core": "^3.9.3",
+    "@material-ui/icons": "^3.0.2",
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
     "browserify": "^10.2.4",
+    "cheerio": "^1.0.0-rc.3",
     "express": "^4.12.3",
     "gulp": "^3.9.0",
-    "prop-types": "^15.6.1",
+    "material-ui": "^0.20.2",
+    "pg": "^7.10.0",
+    "pg-hstore": "^2.3.2",
+    "prop-types": "^15.7.2",
     "react": "^16.2.0",
     "react-dom": "^16.3.1",
+    "sequelize": "^5.7.5",
     "webpack": "^4.29.3"
   },
   "devDependencies": {

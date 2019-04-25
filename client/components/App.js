@@ -1,102 +1,84 @@
-import React, { Component } from 'react';
-import Row from './Row';
-import GameList from './GameList';
-import Leaders from './Leaders';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import ListItemText from '@material-ui/core/ListItemText';
+import Avatar from '@material-ui/core/Avatar';
+import IconButton from '@material-ui/core/IconButton';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import FolderIcon from '@material-ui/icons/Folder';
+import DeleteIcon from '@material-ui/icons/Delete';
+import AppBar from './AppBar';
+import Paper from './Paper';
+import JobList from './JobList';
 
-let gameStore = [];
+const styles = theme => ({
+  root: {
+    flexGrow: 1,
+    maxWidth: 900,
+  },
+  demo: {
+    backgroundColor: theme.palette.background.paper,
+  },
+  title: {
+    margin: `${theme.spacing.unit * 4}px 0 ${theme.spacing.unit * 2}px`,
+  },
+});
 
-function getInitialState() {
-  return {
-    rows: [
-      ['', '', ''],
-      ['', '', ''],
-      ['', '', ''],
-    ],
-    turn: 'X',
-    winner: undefined,
-    gameList: gameStore,
+function generate(element) {
+  return [ 0, 1, 2 ].map(value =>
+    React.cloneElement(element, {
+      key: value,
+    }),
+  );
+}
+
+class InteractiveList extends React.Component {
+  state = {
+    dense: false,
+    secondary: false,
+
   };
-}
-
-function checkWin(rows) {
-  const combos = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 4, 8],
-    [2, 4, 6],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-  ];
-
-  const flattened = rows.reduce((acc, row) => acc.concat(row), []);
-
-  return combos.find(combo => (
-    flattened[combo[0]] !== '' &&
-    flattened[combo[0]] === flattened[combo[1]] &&
-    flattened[combo[1]] === flattened[combo[2]]
-  ));
-}
-
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-    this.state = getInitialState();
-  }
-  
-  handleClick(row, square) {
-    let { turn, winner } = this.state;
-    const { rows } = this.state;
-    const squareInQuestion = rows[row][square];
-
-    if (this.state.winner) return;
-    if (squareInQuestion) return;
-
-    rows[row][square] = turn;
-    turn = turn === 'X' ? 'O' : 'X';
-    winner = checkWin(rows);
-
-    this.setState({
-      rows,
-      turn,
-      winner,
-    });
-  }
 
   render() {
-    const { rows, turn, winner, gameList } = this.state;
-    const handleClick = this.handleClick;
-
-    const rowElements = rows.map((letters, i) => (
-      <Row key={i} row={i} letters={letters} handleClick={handleClick} />
-    ));
-
-    let infoDiv;
-    if (winner) {
-      let winTurn = turn === 'X' ? 'O' : 'X';
-      infoDiv = (
-        <div>
-          <div>Player {winTurn} wins with squares {winner.join(', ')}!</div>
-        </div>
-      );
-    } else {
-      infoDiv = <div>Turn: {turn}</div>;
-    }
+    const { classes } = this.props;
+    const { dense, secondary } = this.state;
 
     return (
-      <div>
-        {infoDiv}
-        <div id="board">
-          {rowElements}
-        </div>
-        <button id="reset" onClick={() => this.setState(getInitialState())}>Reset board</button>
-        <GameList gameList={gameList} />
-        <Leaders />
+      <div className={classes.root}>
+
+        <AppBar />
+        <Grid container spacing={16}>
+          <Grid item xs={12} md={6}>
+            <Typography variant="h6" className={classes.title}>
+              Job Postings
+            </Typography>
+            <div className={classes.demo}>
+              <JobList />
+            </div>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Typography variant="h6" className={classes.title}>
+              ...
+            </Typography>
+            <Paper />
+          </Grid>
+        </Grid>
       </div>
     );
   }
 }
 
-export default App;
+InteractiveList.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(InteractiveList);
