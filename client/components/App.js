@@ -232,7 +232,7 @@ class InteractiveList extends React.Component {
             <Typography variant="h6" className={classes.title}>
               ...
             </Typography>
-            <Paper />
+            <Paper jobs={this.state.jobsArray}/>
           </Grid>
         </Grid>
       </div>
