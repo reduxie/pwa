@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const db = require('../../config/database');
+const db = require('../database');
 
 const Job = db.define('job', {
   link: {

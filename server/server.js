@@ -4,7 +4,7 @@ const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
 const dbController = require('../controllers/dbController');
-const db = require('../config/database');
+const db = require('../db/database');
 
 app.use('/jobs', require('../controllers/dbController'));
 
@@ -12,7 +12,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  );
   next();
 });
 
