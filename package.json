@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "name-goes-here",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,8 +7,6 @@
     "start": "NODE_ENV=production node server/server.js",
     "build": "NODE_ENV=production webpack",
     "dev": "NODE_ENV=development webpack-dev-server --open & nodemon server/server.js ",
-    "gulp-prod": "node_modules/.bin/gulp prod",
-    "gulp-dev": "node_modules/.bin/gulp dev",
     "lint": "eslint ."
   },
   "nodemonConfig": {
@@ -17,24 +15,21 @@
       "client"
     ]
   },
-  "author": "<hello@codesmith.io>",
+  "author": "<email-goes-here>",
   "license": "ISC",
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^3.0.2",
     "body-parser": "^1.18.3",
-    "browserify": "^10.2.4",
     "express": "^4.12.3",
-    "gulp": "^3.9.0",
     "material-ui": "^0.20.2",
     "pg": "^7.10.0",
     "pg-hstore": "^2.3.2",
     "prop-types": "^15.7.2",
     "react": "^16.2.0",
     "react-dom": "^16.3.1",
-    "sequelize": "^5.7.5",
-    "webpack": "^4.29.3"
+    "sequelize": "^5.7.5"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
@@ -61,6 +56,7 @@
     "nodemon": "^1.18.9",
     "prettier": "^1.17.1",
     "style-loader": "^0.23.1",
+    "webpack": "^4.31.0",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.3.1"
   }
