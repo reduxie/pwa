@@ -1,8 +1,10 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import reducer from '../reducers/dateReducer';
+import thunk from 'redux-thunk';
+import reducer from '../reducers/dataReducer';
 
-// we are adding composeWithDevTools here to get easy access to the Redux dev tools
-const store = createStore(reducer, composeWithDevTools());
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 
 export default store;
+
+// Must combine reducer if we have end up having more than 1.

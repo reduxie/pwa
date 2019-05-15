@@ -2,7 +2,7 @@ import * as types from '../constants/actionTypes';
 
 const initialState = {
   user: {
-    avatar: '',
+    avatar: 'CHETB',
     collections: {
       imgId: [],
       searches: [],
@@ -19,6 +19,7 @@ const initialState = {
 const dataReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.GET_DATA:
+      console.log('this is the reducer');
       return {};
 
     default:
