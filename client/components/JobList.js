@@ -19,13 +19,13 @@ const styles = theme => ({
 
 class CheckboxList extends React.Component {
   state = {
-    checked: [ 0 ],
+    checked: [0],
   };
 
   handleToggle = value => () => {
     const { checked } = this.state;
     const currentIndex = checked.indexOf(value);
-    const newChecked = [ ...checked ];
+    const newChecked = [...checked];
 
     if (currentIndex === -1) {
       newChecked.push(value);
@@ -41,16 +41,21 @@ class CheckboxList extends React.Component {
   render() {
     const { classes } = this.props;
     const jobs = this.props.jobsArray;
-    console.log(jobs)
+    console.log(jobs);
     return (
       <List className={classes.root}>
         {jobs.map(value => (
-
-          <ListItem key={value} role={undefined} dense button onClick={this.handleToggle(value)}>
+          <ListItem
+            key={value}
+            role={undefined}
+            dense
+            button
+            onClick={this.handleToggle(value)}
+          >
             <Checkbox
               checked={this.state.checked.indexOf(value) !== -1}
               tabIndex={-1}
-            // disableRipple
+              // disableRipple
             />
             <ListItemText
               primary={`${value.jobTitle}`}

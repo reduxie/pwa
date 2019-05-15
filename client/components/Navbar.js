@@ -8,24 +8,21 @@ import List from '@material-ui/core/List';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 
-const Navbar = (props) => {
+const Navbar = props => {
   const { turn } = props;
   return (
-    <div >
+    <div>
       <h1>
         <List>
           <ListItemSecondaryAction>
-            <ListItemText
-              primary="line item"
-              secondary="secondary text"
-            />
+            <ListItemText primary="line item" secondary="secondary text" />
           </ListItemSecondaryAction>
         </List>
         {turn}
         Or this?
       </h1>
     </div>
-  )
-}
+  );
+};
 
 export default Navbar;

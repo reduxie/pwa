@@ -9,7 +9,7 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import { withStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import Button from './OutlinedButton'
+import Button from './OutlinedButton';
 
 const styles = theme => ({
   root: {
@@ -24,7 +24,7 @@ const styles = theme => ({
   },
   title: {
     display: 'none',
-    [ theme.breakpoints.up('sm') ]: {
+    [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
   },
@@ -37,7 +37,7 @@ const styles = theme => ({
     },
     marginLeft: 0,
     width: '100%',
-    [ theme.breakpoints.up('sm') ]: {
+    [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing.unit,
       width: 'auto',
     },
@@ -62,7 +62,7 @@ const styles = theme => ({
     paddingLeft: theme.spacing.unit * 10,
     transition: theme.transitions.create('width'),
     width: '100%',
-    [ theme.breakpoints.up('sm') ]: {
+    [theme.breakpoints.up('sm')]: {
       width: 120,
       '&:focus': {
         width: 200,
@@ -77,10 +77,19 @@ function SearchAppBar(props) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
+          <IconButton
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="Open drawer"
+          >
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant="h6" color="inherit" noWrap>
+          <Typography
+            className={classes.title}
+            variant="h6"
+            color="inherit"
+            noWrap
+          >
             NYC Dev Jobs
           </Typography>
           <Button />

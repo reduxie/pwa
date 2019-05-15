@@ -14,16 +14,16 @@ const styles = theme => ({
 
 function PaperSheet(props) {
   const { classes } = props;
-  const jobs = props.jobs;
-  console.log(props)
+  const { jobs } = props;
+  console.log(props);
   return (
     <div>
       <Paper className={classes.root} elevation={1}>
         <Typography variant="overline" component="h3">
-          <h3>{jobs[ 0 ].jobTitle}</h3>
+          <h3>{jobs[0].jobTitle}</h3>
         </Typography>
         <Typography variant="body2" component="p">
-          {jobs[ 0 ].description}
+          {jobs[0].description}
         </Typography>
       </Paper>
     </div>

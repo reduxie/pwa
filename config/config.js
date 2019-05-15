@@ -1,8 +1,8 @@
 const config = {
   db: {
-    name: 'devjobs',
-    userName: 'chetbaby',
-    password: 'ilovetesting',
+    name: '',
+    userName: '',
+    password: '',
   }
 }
 
