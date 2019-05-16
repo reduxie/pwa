@@ -27,9 +27,4 @@ const dataReducer = (state = initialState, action) => {
   }
 };
 
-// const reducers = combineReducers({
-//   // if we had other reducers, they would go here
-//   markets: marketsReducer,
-// });
-
 export default dataReducer;
