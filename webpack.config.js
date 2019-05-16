@@ -21,6 +21,15 @@ module.exports = {
         },
       },
       {
+        test: /\.(ts|tsx)$/,
+        exclude: /(node_modules)/,
+        use: [
+          {
+            loader: 'ts-loader',
+          },
+        ],
+      },
+      {
         test: /\.(scss|css)$/,
         exclude: /(node_modules)/,
         use: [
@@ -38,7 +47,7 @@ module.exports = {
     port: 8080,
     proxy: {
       '/api': 'http://localhost:3000/',
-      'changeOrigin': true,
+      changeOrigin: true,
     },
     publicPath: '/build/',
   },
