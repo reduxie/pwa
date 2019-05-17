@@ -2,29 +2,29 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReactJson from 'react-json-view';
 import Button from '@material-ui/core/Button';
-import * as actions from '../actions/actions';
+import { actions } from '../actions/actions';
 
-const mapStateToProps = store => ({
+const mapStateToProps = (store:any) => ({
   store,
 });
 
-const mapDispatchToProps = dispatch => ({
-  getData: () => {
-    dispatch(actions.getData());
-  },
-  saveSearch: () => {
+const mapDispatchToProps = (dispatch:any) => ({
+  // getData: () => {
+  //   dispatch(actions.getData());
+  // },
+  saveSearch: (event:any) => {
     dispatch(actions.saveSearch(event.target.value));
   },
-  saveImage: event => {
+  saveImage: (event:any) => {
     dispatch(actions.saveImage(event.target.id));
   },
-  addToCollection: event => {
-    console.log('hodor');
-    dispatch(actions.addToCollection());
-  },
+  // addToCollection: (event:any) => {
+  //   console.log('hodor');
+  //   dispatch(actions.addToCollection());
+  // },
 });
 
-const Display = props => (
+const Display = (props: any) => (
   <div>
     <ReactJson src={props} />
     <Button
