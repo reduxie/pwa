@@ -1,6 +1,31 @@
-import * as types from '../constants/actionTypes';
+import { actionTypes } from '../constants/actionTypes';
 
-const initialState = {
+
+interface Action {
+    type: string,
+    payload: any
+}
+
+interface DataState {
+    user: {
+        avatar: string,
+        collections: {
+          imgId: number[],
+          searches: any[],
+          notifications: any[],
+        },
+      },
+    image: {
+        id: string,
+        description: string,
+    },
+    display: any[],
+     
+}
+
+
+
+const initialState: DataState = {
   user: {
     avatar: 'CHETB',
     collections: {
@@ -16,16 +41,15 @@ const initialState = {
   display: [],
 };
 
-interface Action {
-  type: string,
-  payload: any
-}
-
-const dataReducer = (state = initialState, action: Action) => {
+const dataReducer = (state = initialState, action:Action) => {
   switch (action.type) {
-    case types.GET_DATA:
+    case actionTypes.GET_DATA:
       console.log('this is the reducer');
-      return {};
+      return {
+          ...state
+      };
+    case actionTypes.SAVE_SEARCH: 
+      
 
     default:
       return state;
@@ -33,3 +57,4 @@ const dataReducer = (state = initialState, action: Action) => {
 };
 
 export default dataReducer;
+ 
