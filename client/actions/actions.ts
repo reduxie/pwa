@@ -1,7 +1,8 @@
 import { actionTypes } from '../constants/actionTypes';
 
 export const actions = {
-    saveSearch: (data: string) => {actionTypes.SAVE_SEARCH, data},
+    saveSearch: (data: string) => ({type: actionTypes.SAVE_SEARCH, payload: data}),
+    addSearch: (data: string) => {actionTypes.ADD_SEARCH, data},
     saveImage: (image: any) => {actionTypes.SAVE_IMAGE, image},
 }
 // export const getData = data => ({
