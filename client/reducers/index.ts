@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import dataReducer from './dataReducer';
+import userReducer from './userReducer';
+import imageReducer from './imageReducer';
 
 const reducers = combineReducers({
-  reducers: dataReducer,
+  user: userReducer,
+  image: imageReducer
 });
 
 export default reducers;
