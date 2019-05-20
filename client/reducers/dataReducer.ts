@@ -20,7 +20,7 @@ interface DataState {
         description: string,
     },
     display: any[],
-     
+    searchWord: string
 }
 
 
@@ -39,17 +39,32 @@ const initialState: DataState = {
     description: '',
   },
   display: [],
+  searchWord: ''
 };
 
 const dataReducer = (state = initialState, action:Action) => {
+  let searchWord:string, searches: string[];
   switch (action.type) {
-    case actionTypes.GET_DATA:
-      console.log('this is the reducer');
-      return {
-          ...state
-      };
+    // case actionTypes.GET_DATA:
+    //   console.log('this is the reducer');
+    //   return {
+    //       ...state
+    //   };
     case actionTypes.SAVE_SEARCH: 
-      
+      searchWord = action.payload
+      return {
+        ...state,
+        searchWord
+      }
+
+    case actionTypes.ADD_SEARCH: 
+      searches = state.user.collections.searches.slice(0);
+      searches.push(state.searchWord);
+      return {
+        ...state,
+        searches,
+        searchWord: ''
+      }
 
     default:
       return state;
