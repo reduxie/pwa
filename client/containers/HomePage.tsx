@@ -14,16 +14,17 @@ import Search from "./../components/SearchBox"
 
 
 const mapStateToProps = (store:any) => ({
-  store,
+  store: store.searchWord
 });
 
 
 const mapDispatchToProps = (dispatch:any) => ({
-  saveSearch: (event:any) => {
-      const action = actions.saveSearch(event.target.value);
-      console.log('this is the event', action);
-    dispatch(action);
+  saveSearch: (event:string) => {
+    dispatch(actions.saveSearch(event));
   },
+  addSearch: (event:string) => {
+    dispatch(actions.addSearch(event));
+  }
   
 //   saveImage: (event:any) => {
 //     dispatch(actions.saveImage(event.target.id));
@@ -33,20 +34,21 @@ const mapDispatchToProps = (dispatch:any) => ({
 //     dispatch(actions.addToCollection());
 //   },
 });
-interface JaysSmallPEnis {
+interface IProps {
     saveSearch: (e: any) => void;
-    
+    addSearch:(e: any) => void;
+    store: string;
 }
 
 
 
-const Homepage: React.FC<JaysSmallPEnis> = (props) => {
+const Homepage: React.FC<IProps> = (props) => {
       return (
         <div>
             <h2>
               Home Page
             </h2>
-            <Search search={props.saveSearch}/>
+            <Search saveSearch={props.saveSearch} addSearch={props.addSearch} searchWord={props.store}/>
             <NavBar />
         </div>
       )

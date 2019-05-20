@@ -17,9 +17,9 @@ import React from 'react';
 const Search = (props:any) => {
     return (
         <div>
-            <input type="text" id="searchBox" onChange={(event) => props.search(event)} />
+            <input type="text" id="searchBox" onChange={(event) => props.saveSearch(event.target.value)} />
             {/* <input type="text" id="searchBox" /> */}
-            {/* <input type="button" onClick={(event) => props.addSearch(event)} /> */}
+            <input type="button" onClick={(event) => props.addSearch(props.searchWord)} />
             {/* <input type="button"  /> */}
         </div>
     )
