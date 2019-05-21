@@ -6,7 +6,7 @@ interface labeledValue {
 const Hw = () => <h1>hello ts!</h1>;
 
 const func = function(l: labeledValue) {
-  console.log(l.label);
+  // console.log(l.label);
 };
 func({ label: 'Mikey is winning' });
 export default Hw;

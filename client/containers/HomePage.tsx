@@ -6,7 +6,7 @@ import Search from "./../components/SearchBox"
 
 
 const mapStateToProps = (store:any) => ({
-  searchWord: store.searchWord
+  searchWord: store.user.searchWord
 });
 
 
@@ -18,6 +18,7 @@ const mapDispatchToProps = (dispatch:any) => ({
 //     dispatch(actions.addSearch(event));
 //   },
   getSearchImage: (searchWord: string) => {
+    //   console.log('inside homepage', searchWord)
       dispatch(getSearchImageAsync(searchWord))
   },
   getProfile: (userId: number) => {
