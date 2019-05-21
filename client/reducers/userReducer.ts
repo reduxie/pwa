@@ -7,7 +7,6 @@ interface Action {
 }
 
 interface DataState {
-    
     searchWord: string
 }
 
@@ -18,7 +17,7 @@ const initialState: DataState = {
 };
 
 const userReducer = (state = initialState, action:Action) => {
-  let searchWord:string, searches: string[];
+  let searchWord:string;
   switch (action.type) {
     // case actionTypes.GET_DATA:
     //   console.log('this is the reducer');
