@@ -31,6 +31,7 @@ app.use(function(
   return next();
 });
 
+// POST to search images from api by keyword
 app.post(
   '/searchImages',
   imagesAPIController,
