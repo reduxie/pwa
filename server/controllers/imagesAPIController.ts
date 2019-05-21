@@ -24,6 +24,7 @@ module.exports = (
         };
         dataArray.push(pushObj);
       }
+
       res.locals.data = dataArray;
       return next();
     });
