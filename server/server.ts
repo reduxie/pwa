@@ -3,6 +3,7 @@ import express from 'express';
 const bodyParser = require('body-parser');
 const path = require('path');
 const imagesAPIController = require('./controllers/imagesAPIController');
+const addToDbController = require('./controllers/addToDbController');
 
 const app = express();
 const { PORT = 3000 } = process.env;
@@ -46,8 +47,10 @@ app.get('/getDbImages', (req: express.Request, res: express.Response) => {
 
 app.post(
   '/addImageToFavsTable',
+  addToDbController,
   (req: express.Request, res: express.Response) => {
-    res.send('in   /addImageToFavsTable');
+    if (res.locals.err) res.send(res.locals.err);
+    res.send();
   }
 );
 
