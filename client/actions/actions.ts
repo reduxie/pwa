@@ -1,13 +1,22 @@
+import { Dispatch } from 'redux';
 import { actionTypes } from '../constants/actionTypes';
-import  { Dispatch } from 'redux';
 
 export const actions = {
-    saveSearch: (data: string) => ({type: actionTypes.SAVE_SEARCH, payload: data}),
-    // addSearch: (data: string) => ({type: actionTypes.ADD_SEARCH, payload: data}),
-    getSearchImage: (images: any[]) => ({type: actionTypes.GET_SEARCH_IMAGE, payload: images}),
-    getProfile: (images: any[]) => ({type: actionTypes.GET_PROFILE, payload: images})
-    // saveImage: (image: any) => ({actionTypes.SAVE_IMAGE, image}),
-}
+  saveSearch: (data: string) => ({
+    type: actionTypes.SAVE_SEARCH,
+    payload: data,
+  }),
+  // addSearch: (data: string) => ({type: actionTypes.ADD_SEARCH, payload: data}),
+  getSearchImage: (images: any[]) => ({
+    type: actionTypes.GET_SEARCH_IMAGE,
+    payload: images,
+  }),
+  getProfile: (images: any[]) => ({
+    type: actionTypes.GET_PROFILE,
+    payload: images,
+  }),
+  // saveImage: (image: any) => ({actionTypes.SAVE_IMAGE, image}),
+};
 
 export const getSearchImageAsync = (searchWord:string) => {
     // console.log('inside getsearchimageasync', searchWord)
