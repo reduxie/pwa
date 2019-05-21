@@ -2,6 +2,7 @@ import express from 'express';
 
 const bodyParser = require('body-parser');
 const path = require('path');
+const imagesAPIController = require('./controllers/imagesAPIController');
 
 const app = express();
 const { PORT = 3000 } = process.env;
@@ -13,7 +14,7 @@ app.use(
   })
 );
 
-app.use(function (
+app.use(function(
   req: express.Request,
   res: express.Response,
   next: express.NextFunction
@@ -30,9 +31,13 @@ app.use(function (
   return next();
 });
 
-app.get('/searchImages', (req: express.Request, res: express.Response) => {
-  res.send('in   /searchImages');
-});
+app.post(
+  '/searchImages',
+  imagesAPIController,
+  (req: express.Request, res: express.Response) => {
+    res.send(res.locals.data);
+  }
+);
 
 app.get('/getDbImages', (req: express.Request, res: express.Response) => {
   res.send('in   /getDbImages');
@@ -57,3 +62,9 @@ if (require.main === module) {
     console.log(`Server started at http://localhost:${PORT}`);
   });
 }
+
+
+
+
+
+
