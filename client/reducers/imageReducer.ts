@@ -7,23 +7,19 @@ interface Action {
 }
 
 interface ImageState {
-    image: {
-        myImages: any[],
-        searchImages: any[],
-    },
+    myImages: any[],
+    searchImages: any[],
 }
 
 
 
 const initialState: ImageState = {
-  image: {
-      myImages: [],
-      searchImages: []
-  }
+    myImages: [],
+    searchImages: []
 };
 
 const imageReducer = (state = initialState, action:Action) => {
-  let searchWord:string, searches: string[];
+  let searchImages;
   switch (action.type) {
 //     case actionTypes.SAVE_SEARCH: 
 //       searchWord = action.payload
@@ -31,6 +27,16 @@ const imageReducer = (state = initialState, action:Action) => {
 //         ...state,
 //         searchWord
 //       }
+        case actionTypes.GET_PROFILE: 
+            return {
+                ...state,
+                myImages: action.payload
+            }
+        case actionTypes.GET_SEARCH_IMAGE:
+            return {
+                ...state,
+                searchImages: action.payload
+            } 
     default:
       return state;
   }
