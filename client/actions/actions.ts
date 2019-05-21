@@ -34,18 +34,20 @@ export const getSearchImageAsync = (searchWord:string) => {
     }
 }
 
-export const getProfileAsync = (userId: number) =>
-  function(dispatch: Dispatch) {
-    return fetch(`http://localhost:3000/getDbImages?userId=${userId}`, {
-      method: 'GET',
-      headers: { 'content-type': 'application/json' },
-    })
-      .then(response => response.json())
-      .then(response => {
-        console.log('this is the response from server', response);
-        dispatch(actions.getProfile(response));
-      });
-  };
+export const getProfileAsync = (userId: number) => {
+    console.log('inside the getprofile async', userId)
+    return function(dispatch: Dispatch) {
+        return fetch(`http://localhost:3000/getDbImages?userId=${userId}`, {
+            method: "GET",
+            headers: {"content-type": "application/json"},
+        })
+        .then(response => response.json())
+        .then(response => {
+            console.log("this is the response from server", response)
+            dispatch(actions.getProfile(response))
+        })
+    }
+}
 // export const getData = data => ({
 //   type: types.GET_DATA,
 //   payload: data,

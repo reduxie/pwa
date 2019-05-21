@@ -9,13 +9,15 @@ interface Action {
 interface ImageState {
     myImages: any[],
     searchImages: any[],
+    user_id: number
 }
 
 
 
 const initialState: ImageState = {
     myImages: [],
-    searchImages: []
+    searchImages: [],
+    user_id: 1
 };
 
 const imageReducer = (state = initialState, action:Action) => {

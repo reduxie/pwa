@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import ProfileDisplay from './ProfileDisplay';
 
+interface INav {
+    getProfile: (e: any) => void,
+    user: number
+}
 
-
-const NavBar: React.FC<{}> = () => (
+const NavBar: React.FC<INav> = (props) => (
     <div>
         <Link to="/"><button className="navbar">HOMEPAGE</button></Link>
-        <Link to="/profile"><button className="navbar">PROFILE</button></Link>
+        <Link to="/profile"><button className="navbar" onClick={(event) => props.getProfile(props.user) }>PROFILE</button></Link>
         <button className="navbar" >Notifications</button>
     </div>
 );
