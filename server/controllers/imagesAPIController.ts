@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 
 module.exports = (
   req: express.Request,
-  res: express.Request,
+  res: express.Response,
   next: express.NextFunction
 ) => {
   const { image } = req.body;
@@ -19,6 +19,7 @@ module.exports = (
           webformatURL: data.hits[i].webformatURL,
           likes: data.hits[i].likes,
           tags: data.hits[i].tags,
+          id: data.hits[i].id,
         };
         dataArray.push(pushObj);
       }
