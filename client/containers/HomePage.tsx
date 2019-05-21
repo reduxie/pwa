@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import NavBar from "./../components/NavBar";
 import { connect } from "react-redux";
 import { actions, getSearchImageAsync, getProfileAsync } from '../actions/actions';
-import Search from "./../components/SearchBox"
+import Search from "./../components/SearchBox";
+import Display from "./../components/Display";
 
 
 const mapStateToProps = (store:any) => ({
-  searchWord: store.user.searchWord
+  searchWord: store.user.searchWord,
+  images: store.image.searchImages
 });
 
 
@@ -39,6 +41,7 @@ interface IProps {
     getSearchImage: (searchWord: string) => void; 
     getProfile: (userId: number) => void;
     searchWord: string;
+    images: any[];
 }
 
 
@@ -50,6 +53,7 @@ const Homepage: React.FC<IProps> = (props) => {
               Home Page
             </h2>
             <Search saveSearch={props.saveSearch} getSearchImage={props.getSearchImage} searchWord={props.searchWord}/>
+            <Display images={props.images} />
             <NavBar />
         </div>
       )

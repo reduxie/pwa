@@ -2,6 +2,14 @@ import * as express from 'express';
 
 const fetch = require('node-fetch');
 
+interface ImageObj {
+  id: number;
+  previewURL: string;
+  webformatURL: string;
+  likes: number;
+  tags: string;
+}
+
 module.exports = (
   req: express.Request,
   res: express.Response,
@@ -14,9 +22,10 @@ module.exports = (
     .then((response: any) => response.json())
     .then((data: any) => {
       // console.log('this is the data', data)
-      const dataArray: any = [];
+      const dataArray: Array<ImageObj> = [];
       for (let i = 0; i < data.hits.length; i += 1) {
-        const pushObj: any = {
+        const pushObj: ImageObj = {
+          id: data.hits[i].id,
           previewURL: data.hits[i].previewURL,
           webformatURL: data.hits[i].webformatURL,
           likes: data.hits[i].likes,

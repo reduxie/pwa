@@ -1,25 +1,35 @@
 import React, { Component } from 'react';
 import NavBar from "./../components/NavBar";
+import ProfileDisplay from "./../components/ProfileDisplay";
+import { connect } from "react-redux";
+import { getProfileAsync } from '../actions/actions';
 
+const mapStateToProps = (store:any) => ({
+  profile: store.image.myImages
+});
 
+const mapDispatchToProps = (dispatch:any) => ({
+  getProfile: (userId: number) => {
+    dispatch(getProfileAsync(userId))
+  }
+})
 
-// const Profile: React.FC<{}> = () => (
-//     <div>
-//         <h1>Profile Page</h1>
-//         <NavBar />
-//     </div>
-// );
+interface IProfile {
+  profile: any[];
+}
 
-class Profile extends React.Component<{}> {
-    render() {
+const Profile: React.FC<IProfile> = (props) => {
       return (
         <div>
             <h2>
               Profile Page
             </h2>
+            <ProfileDisplay profile={props.profile}/>
             <NavBar />
         </div>
       )
-    }
   }
-export default Profile;
+  export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Profile);
