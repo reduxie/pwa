@@ -12,7 +12,17 @@ module.exports = (
   fetch(URL)
     .then((response: any) => response.json())
     .then((data: any) => {
-      res.locals.data = data;
+      const dataArray: any = [];
+      for (let i = 0; i < data.hits.length; i += 1) {
+        const pushObj: any = {
+          previewURL: data.hits[i].previewURL,
+          webformatURL: data.hits[i].webformatURL,
+          likes: data.hits[i].likes,
+          tags: data.hits[i].tags,
+        };
+        dataArray.push(pushObj);
+      }
+      res.locals.data = dataArray;
       return next();
     });
 };
