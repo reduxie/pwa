@@ -10,7 +10,7 @@ export const actions = {
 }
 
 export const getSearchImageAsync = (searchWord:string) => {
-    console.log('inside getsearchimageasync')
+    // console.log('inside getsearchimageasync', searchWord)
     return function(dispatch: Dispatch) {
         return fetch('http://localhost:3000/searchImages', {
             method: "POST",
@@ -19,7 +19,7 @@ export const getSearchImageAsync = (searchWord:string) => {
         })
         .then(response => response.json())
         .then(response => {
-            console.log("this is the response from server", response)
+            // console.log("this is the response from server", response)
             dispatch(actions.getSearchImage(response))
         })
     }
