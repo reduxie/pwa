@@ -16,6 +16,8 @@ const mapDispatchToProps = (dispatch:any) => ({
 
 interface IProfile {
   profile: any[];
+  getProfile: (e: any) => void;
+  user: number;
 }
 
 const Profile: React.FC<IProfile> = (props) => {
@@ -25,7 +27,7 @@ const Profile: React.FC<IProfile> = (props) => {
               Profile Page
             </h2>
             <ProfileDisplay profile={props.profile}/>
-            <NavBar />
+            <NavBar getProfile={props.getProfile} user={props.user} />
         </div>
       )
   }

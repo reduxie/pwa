@@ -7,6 +7,7 @@ interface IProps {
 
 const ProfileDisplay: React.FC<IProps> = (props) => {
     const imageArr = []
+    console.log(props.profile);
     for(let i = 0; i < props.profile.length; i++) {
         // console.log('this is props', props.images[i].webformatURL)
         imageArr.push(<Image image={props.profile[i].webformatURL} />);

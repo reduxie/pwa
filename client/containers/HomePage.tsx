@@ -8,7 +8,8 @@ import Display from "./../components/Display";
 
 const mapStateToProps = (store:any) => ({
   searchWord: store.user.searchWord,
-  images: store.image.searchImages
+  images: store.image.searchImages,
+  user: store.image.user_id 
 });
 
 
@@ -23,8 +24,8 @@ const mapDispatchToProps = (dispatch:any) => ({
     //   console.log('inside homepage', searchWord)
       dispatch(getSearchImageAsync(searchWord))
   },
-  getProfile: (userId: number) => {
-      dispatch(getProfileAsync(userId))
+  getProfile: (event:number) => {
+      dispatch(getProfileAsync(event))
   }
   
 //   saveImage: (event:any) => {
@@ -39,9 +40,10 @@ interface IProps {
     saveSearch: (e: any) => void;
     addSearch:(e: any) => void;
     getSearchImage: (searchWord: string) => void; 
-    getProfile: (userId: number) => void;
+    getProfile: (e: any) => void;
     searchWord: string;
     images: any[];
+    user: number;
 }
 
 
@@ -54,7 +56,7 @@ const Homepage: React.FC<IProps> = (props) => {
             </h2>
             <Search saveSearch={props.saveSearch} getSearchImage={props.getSearchImage} searchWord={props.searchWord}/>
             <Display images={props.images} />
-            <NavBar />
+            <NavBar getProfile={props.getProfile} user={props.user} />
         </div>
       )
     }

@@ -26,6 +26,7 @@ export const getSearchImageAsync = (searchWord:string) => {
 }
 
 export const getProfileAsync = (userId: number) => {
+    console.log('inside the getprofile async', userId)
     return function(dispatch: Dispatch) {
         return fetch(`http://localhost:3000/getDbImages?userId=${userId}`, {
             method: "GET",
