@@ -19,7 +19,7 @@ const Search = (props:any) => {
         <div>
             <input type="text" id="searchBox" onChange={(event) => props.saveSearch(event.target.value)} />
             {/* <input type="text" id="searchBox" /> */}
-            <input type="button" onClick={(event) => props.addSearch(props.searchWord)} />
+            <input type="button" onClick={(event) => props.getSearchImage(props.searchWord)} />
             {/* <input type="button"  /> */}
         </div>
     )
