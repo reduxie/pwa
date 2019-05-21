@@ -9,7 +9,7 @@ module.exports = (
 ) => {
   console.log('this is req', req.body)
   const { image } = req.body;
-  // console.log('this is the req body', image);
+  console.log(image);
   const URL: string = `https://pixabay.com/api/?key=12543231-c905ff0a34449838e030e5931&q=${image}&image_type=photo`;
   fetch(URL)
     .then((response: any) => response.json())
