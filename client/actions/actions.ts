@@ -18,6 +18,7 @@ export const actions = {
   // saveImage: (image: any) => ({actionTypes.SAVE_IMAGE, image}),
 };
 
+<<<<<<< HEAD
 export const getSearchImageAsync = (searchWord: string) => {
   console.log('inside getsearchimageasync');
   return function(dispatch: Dispatch) {
@@ -33,6 +34,23 @@ export const getSearchImageAsync = (searchWord: string) => {
       });
   };
 };
+=======
+export const getSearchImageAsync = (searchWord:string) => {
+    // console.log('inside getsearchimageasync', searchWord)
+    return function(dispatch: Dispatch) {
+        return fetch('http://localhost:3000/searchImages', {
+            method: "POST",
+            headers: {"content-type": "application/json"},
+            body: JSON.stringify({"image": searchWord})
+        })
+        .then(response => response.json())
+        .then(response => {
+            // console.log("this is the response from server", response)
+            dispatch(actions.getSearchImage(response))
+        })
+    }
+}
+>>>>>>> 6173a7dd32e5b1b6c88df24b39ed354d2c84f1eb
 
 export const getProfileAsync = (userId: number) =>
   function(dispatch: Dispatch) {

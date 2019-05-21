@@ -19,7 +19,7 @@ const initialState = {
 const dataReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.GET_DATA:
-      console.log('this is the reducer');
+      // console.log('this is the reducer');
       return {};
 
     default:

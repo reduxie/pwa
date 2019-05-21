@@ -30,6 +30,10 @@ const userReducer = (state = initialState, action:Action) => {
         ...state,
         searchWord
       }
+    case actionTypes.GET_SEARCH_IMAGE:
+      return {
+          searchWord: ''
+      } 
 
     // case actionTypes.ADD_SEARCH: 
     //   searches = state.user.collections.searches.slice();
