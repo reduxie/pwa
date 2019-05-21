@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const imagesAPIController = require('./controllers/imagesAPIController');
 const addToDbController = require('./controllers/addToDbController');
+const getDbImagesController = require('./controllers/getDbImagesController');
 
 const app = express();
 const { PORT = 3000 } = process.env;
@@ -41,9 +42,14 @@ app.post(
   }
 );
 
-app.get('/getDbImages', (req: express.Request, res: express.Response) => {
-  res.send('in   /getDbImages');
-});
+app.get(
+  '/getDbImages',
+  getDbImagesController,
+  (req: express.Request, res: express.Response) => {
+    if (res.locals.err) res.send(res.locals.err);
+    res.send(res.locals.data);
+  }
+);
 
 app.post(
   '/addImageToFavsTable',
