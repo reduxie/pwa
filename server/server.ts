@@ -3,6 +3,7 @@ import express from 'express';
 const bodyParser = require('body-parser');
 const path = require('path');
 const imagesAPIController = require('./controllers/imagesAPIController');
+const userImgsController = require('./controllers/userImgsController');
 
 const app = express();
 const { PORT = 3000 } = process.env;
