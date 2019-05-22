@@ -17,11 +17,10 @@ module.exports = (
   const pool: any = connectToDb();
   const data: dbObj = {
     userId: 1,
-    imgId: req.body.imgId,
-    imgUrl: req.body.imgUrl,
-    imgLikes: req.body.imgLikes,
+    imgId: req.body.image.id,
+    imgUrl: req.body.image.webformatURL,
+    imgLikes: req.body.image.likes,
   };
-
   const query: {} = {
     text:
       'INSERT INTO user_img(user_id, img_id, img_url, img_likes) VALUES($1, $2, $3, $4)',

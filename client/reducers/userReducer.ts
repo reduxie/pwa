@@ -7,23 +7,22 @@ interface Action {
 }
 
 interface DataState {
-    searchWord: string
+    searchWord: string;
+    // userLikes: any[];
 }
 
 
 
 const initialState: DataState = {
-  searchWord: ''
+  searchWord: '',
+  // userLikes: []
 };
 
 const userReducer = (state = initialState, action:Action) => {
-  let searchWord:string;
+  let searchWord: string; 
+  // let userLikes: any[];
   switch (action.type) {
-    // case actionTypes.GET_DATA:
-    //   console.log('this is the reducer');
-    //   return {
-    //       ...state
-    //   };
+
     case actionTypes.SAVE_SEARCH: 
       searchWord = action.payload
       return {
@@ -34,19 +33,13 @@ const userReducer = (state = initialState, action:Action) => {
       return {
           searchWord: ''
       } 
-
-    // case actionTypes.ADD_SEARCH: 
-    //   searches = state.user.collections.searches.slice();
-    //   searches.push(state.searchWord);
+    // case actionTypes.LIKED_IMAGE: 
+    //   userLikes = state.userLikes.slice(0);
+    //   userLikes.push(action.payload);
     //   return {
     //     ...state,
-    //     collections: {
-    //       ...state.user.collections,
-    //       searches: searches
-    //     },
-    //     searchWord: ''
-    //   }
-
+    //     userLikes
+    //   } 
     default:
       return state;
   }

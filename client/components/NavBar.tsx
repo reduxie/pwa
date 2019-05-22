@@ -4,13 +4,14 @@ import ProfileDisplay from './ProfileDisplay';
 
 interface INav {
     getProfile: (e: any) => void,
+    // likedImage: (images: any) => void; 
     user: number
 }
 
 const NavBar: React.FC<INav> = (props) => (
     <div>
         <Link to="/"><button className="navbar">HOMEPAGE</button></Link>
-        <Link to="/profile"><button className="navbar" onClick={(event) => props.getProfile(props.user) }>PROFILE</button></Link>
+        <Link to="/profile"><button className="navbar" onClick={(event) => props.getProfile(props.user) } >PROFILE</button></Link>
         <button className="navbar" >Notifications</button>
     </div>
 );

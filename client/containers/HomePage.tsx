@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NavBar from "./../components/NavBar";
 import { connect } from "react-redux";
-import { actions, getSearchImageAsync, getProfileAsync } from '../actions/actions';
+import { actions, getSearchImageAsync, getProfileAsync, getLikedImageAsync } from '../actions/actions';
 import Search from "./../components/SearchBox";
 import Display from "./../components/Display";
 
@@ -26,21 +26,17 @@ const mapDispatchToProps = (dispatch:any) => ({
   },
   getProfile: (event:number) => {
       dispatch(getProfileAsync(event))
+  },
+  likedImage: (event: any) => {
+      dispatch(getLikedImageAsync(event))
   }
-  
-//   saveImage: (event:any) => {
-//     dispatch(actions.saveImage(event.target.id));
-//   },
-//   addToCollection: (event:any) => {
-//     console.log('hodor');
-//     dispatch(actions.addToCollection());
-//   },
 });
 interface IProps {
     saveSearch: (e: any) => void;
     addSearch:(e: any) => void;
     getSearchImage: (searchWord: string) => void; 
     getProfile: (e: any) => void;
+    likedImage?: (images: any) => void; 
     searchWord: string;
     images: any[];
     user: number;
@@ -55,7 +51,7 @@ const Homepage: React.FC<IProps> = (props) => {
               Home Page
             </h2>
             <Search saveSearch={props.saveSearch} getSearchImage={props.getSearchImage} searchWord={props.searchWord}/>
-            <Display images={props.images} />
+            <Display images={props.images} likedImage={props.likedImage} />
             <NavBar getProfile={props.getProfile} user={props.user} />
         </div>
       )

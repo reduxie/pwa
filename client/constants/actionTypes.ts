@@ -2,6 +2,7 @@ export enum actionTypes {
     SAVE_SEARCH = 'SAVE_SEARCH',
     ADD_SEARCH = 'ADD_SEARCH',
     // SAVE_IMAGE = 'SAVE_IMAGE',
+    LIKED_IMAGE = 'LIKED_IMAGE',
     GET_SEARCH_IMAGE = 'GET_SEARCH_IMAGE',
     GET_PROFILE = 'GET_PROFILE'
 } 
