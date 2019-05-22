@@ -15,17 +15,13 @@ module.exports = (
   next: express.NextFunction
 ) => {
   const pool: any = connectToDb();
-  const data: dbObj = {
-    userId: 1,
-    imgId: req.body.imgId,
-    imgUrl: req.body.imgUrl,
-    imgLikes: req.body.imgLikes,
+  const data: any = {
+    id: req.body.id,
   };
-
+  console.log(data);
   const query: {} = {
-    text:
-      'INSERT INTO user_img(user_id, img_id, img_url, img_likes) VALUES($1, $2, $3, $4)',
-    values: [data.userId, data.imgId, data.imgUrl, data.imgLikes],
+    text: `DELETE FROM user_img WHERE id = ($1)`,
+    values: [data.id],
   };
 
   pool.query(query, (err: any, data: any) => {
