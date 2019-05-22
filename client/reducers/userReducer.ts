@@ -8,19 +8,17 @@ interface Action {
 
 interface DataState {
     searchWord: string;
-    // userLikes: any[];
+    userLikes: any[];
 }
-
-
 
 const initialState: DataState = {
   searchWord: '',
-  // userLikes: []
+  userLikes: []
 };
 
 const userReducer = (state = initialState, action:Action) => {
   let searchWord: string; 
-  // let userLikes: any[];
+  let likes: any[];
   switch (action.type) {
 
     case actionTypes.SAVE_SEARCH: 
@@ -31,15 +29,18 @@ const userReducer = (state = initialState, action:Action) => {
       }
     case actionTypes.GET_SEARCH_IMAGE:
       return {
+          ...state,
           searchWord: ''
       } 
-    // case actionTypes.LIKED_IMAGE: 
-    //   userLikes = state.userLikes.slice(0);
-    //   userLikes.push(action.payload);
-    //   return {
-    //     ...state,
-    //     userLikes
-    //   } 
+    case actionTypes.LIKED_IMAGE: 
+    
+    console.log('we are inside the reducer')
+      likes = state.userLikes.slice();
+      likes.push(action.payload);
+      return {
+        ...state,
+        userLikes: likes
+      } 
     default:
       return state;
   }

@@ -54,7 +54,6 @@ export const getProfileAsync = (userId: number) => {
 }
 
 export const getLikedImageAsync = (image: any) => {
-  // console.log('inside getsearchimageasync', searchWord)
   console.log('this is the image', image)
   return function(dispatch: Dispatch) {
       return fetch('http://localhost:3000/addImageToFavsTable', {
