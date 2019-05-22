@@ -23,12 +23,6 @@ const initialState: ImageState = {
 const imageReducer = (state = initialState, action:Action) => {
   let searchImages;
   switch (action.type) {
-//     case actionTypes.SAVE_SEARCH: 
-//       searchWord = action.payload
-//       return {
-//         ...state,
-//         searchWord
-//       }
         case actionTypes.GET_PROFILE: 
             return {
                 ...state,
