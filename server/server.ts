@@ -5,6 +5,7 @@ const path = require('path');
 const imagesAPIController = require('./controllers/imagesAPIController');
 const addToDbController = require('./controllers/addToDbController');
 const getDbImagesController = require('./controllers/getDbImagesController');
+const deleteFromDbController = require('./controllers/deleteFromDbController');
 
 const app = express();
 const { PORT = 3000 } = process.env;
@@ -33,14 +34,6 @@ app.use(function(
   return next();
 });
 
-// POST to search images from api by keyword
-app.post(
-  '/searchImages',
-  imagesAPIController,
-  (req: express.Request, res: express.Response) => {
-    res.send(res.locals.data);
-  }
-);
 
 app.get(
   '/getDbImages',
@@ -50,6 +43,15 @@ app.get(
     res.send(res.locals.data);
   }
 );
+
+  // POST to search images from api by keyword
+  app.post(
+    '/searchImages',
+    imagesAPIController,
+    (req: express.Request, res: express.Response) => {
+      res.send(res.locals.data);
+    }
+  );
 
 app.post(
   '/addImageToFavsTable',
@@ -62,6 +64,7 @@ app.post(
 
 app.delete(
   '/removeImageFromFavTable',
+  deleteFromDbController,
   (req: express.Request, res: express.Response) => {
     res.send('in   /removeImageFromFavTable');
   }
