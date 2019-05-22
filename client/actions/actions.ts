@@ -6,7 +6,6 @@ export const actions = {
     type: actionTypes.SAVE_SEARCH,
     payload: data,
   }),
-  // addSearch: (data: string) => ({type: actionTypes.ADD_SEARCH, payload: data}),
   getSearchImage: (images: any[]) => ({
     type: actionTypes.GET_SEARCH_IMAGE,
     payload: images,
@@ -18,12 +17,14 @@ export const actions = {
   likedImage: (image: any) => ({
     type: actionTypes.LIKED_IMAGE,
     payload: image,
+  }),
+  deleteImage: (image: any) => ({
+    type: actionTypes.DELETE_IMAGE,
+    payload: image,
   })
-  // saveImage: (image: any) => ({actionTypes.SAVE_IMAGE, image}),
 };
 
 export const getSearchImageAsync = (searchWord:string) => {
-    // console.log('inside getsearchimageasync', searchWord)
     return function(dispatch: Dispatch) {
         return fetch('http://localhost:3000/searchImages', {
             method: "POST",
@@ -32,14 +33,12 @@ export const getSearchImageAsync = (searchWord:string) => {
         })
         .then(response => response.json())
         .then(response => {
-            console.log("this is the response from server", response)
             dispatch(actions.getSearchImage(response))
         })
     }
 }
 
 export const getProfileAsync = (userId: number) => {
-    console.log('inside the getprofile async', userId)
     return function(dispatch: Dispatch) {
         return fetch(`http://localhost:3000/getDbImages?userId=${userId}`, {
             method: "GET",
@@ -47,14 +46,12 @@ export const getProfileAsync = (userId: number) => {
         })
         .then(response => response.json())
         .then(response => {
-            // console.log("this is the response from server", response)
             dispatch(actions.getProfile(response))
         })
     }
 }
 
 export const getLikedImageAsync = (image: any) => {
-  console.log('this is the image', image)
   return function(dispatch: Dispatch) {
       return fetch('http://localhost:3000/addImageToFavsTable', {
           method: "POST",
@@ -63,6 +60,19 @@ export const getLikedImageAsync = (image: any) => {
       })
       .then(() => {
           dispatch(actions.likedImage(image))
+      })
+  }
+}
+
+export const deleteImageAsync = (image: any) => {
+  return function(dispatch: Dispatch) {
+      return fetch('http://localhost:3000/removeImageFromFavTable', {
+          method: "DELETE",
+          headers: {"content-type": "application/json"},
+          body: JSON.stringify({image})
+      })
+      .then(() => {
+          dispatch(actions.deleteImage(image))
       })
   }
 }
