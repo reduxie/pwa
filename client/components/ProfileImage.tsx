@@ -22,7 +22,7 @@ const ProfileImage = (props: any) => {
     return (
         <div>
             <img src={props.image} />
-            <button onClick={(event) => props.likedImage(props.image)}>LIKE</button>
+            <button onClick={(event) => props.likedImage(props.image)}>DELETE</button>
         </div>
     )
 }

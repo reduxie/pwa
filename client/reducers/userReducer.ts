@@ -19,7 +19,7 @@ const initialState: DataState = {
 };
 
 const userReducer = (state = initialState, action:Action) => {
-  let searchWord:string; 
+  let searchWord: string; 
   // let userLikes: any[];
   switch (action.type) {
 

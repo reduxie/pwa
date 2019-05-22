@@ -14,15 +14,13 @@ module.exports = (
   res: express.Response,
   next: express.NextFunction
 ) => {
-  console.log('this is req.bodyyy', req.body)
   const pool: any = connectToDb();
   const data: dbObj = {
     userId: 1,
-    imgId: req.body.id,
-    imgUrl: req.body.webformatURL,
-    imgLikes: req.body.likes,
+    imgId: req.body.image.id,
+    imgUrl: req.body.image.webformatURL,
+    imgLikes: req.body.image.likes,
   };
-
   const query: {} = {
     text:
       'INSERT INTO user_img(user_id, img_id, img_url, img_likes) VALUES($1, $2, $3, $4)',

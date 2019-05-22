@@ -15,7 +15,7 @@ export const actions = {
     type: actionTypes.GET_PROFILE,
     payload: images,
   }),
-  likedImage: (image: string) => ({
+  likedImage: (image: any) => ({
     type: actionTypes.LIKED_IMAGE,
     payload: image,
   })
@@ -62,10 +62,8 @@ export const getLikedImageAsync = (image: any) => {
           headers: {"content-type": "application/json"},
           body: JSON.stringify({image})
       })
-      .then(response => response.json())
-      .then(response => {
-          console.log("this is the response from server", response)
-          dispatch(actions.likedImage(response))
+      .then(() => {
+          dispatch(actions.likedImage(image))
       })
   }
 }
