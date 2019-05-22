@@ -33,8 +33,6 @@ const userReducer = (state = initialState, action:Action) => {
           searchWord: ''
       } 
     case actionTypes.LIKED_IMAGE: 
-    
-    console.log('we are inside the reducer')
       likes = state.userLikes.slice();
       likes.push(action.payload);
       return {

@@ -17,11 +17,8 @@ const mapDispatchToProps = (dispatch:any) => ({
   saveSearch: (event:string) => {
     dispatch(actions.saveSearch(event));
   },
-//   addSearch: (event:string) => {
-//     dispatch(actions.addSearch(event));
-//   },
+
   getSearchImage: (searchWord: string) => {
-    //   console.log('inside homepage', searchWord)
       dispatch(getSearchImageAsync(searchWord))
   },
   getProfile: (event:number) => {
@@ -60,4 +57,3 @@ export default connect(
     mapStateToProps,
     mapDispatchToProps
   )(Homepage);
-// export default Homepage;

@@ -4,7 +4,8 @@ export enum actionTypes {
     // SAVE_IMAGE = 'SAVE_IMAGE',
     LIKED_IMAGE = 'LIKED_IMAGE',
     GET_SEARCH_IMAGE = 'GET_SEARCH_IMAGE',
-    GET_PROFILE = 'GET_PROFILE'
+    GET_PROFILE = 'GET_PROFILE',
+    DELETE_IMAGE = 'DELETE_IMAGE'
 } 
 
 // export const SAVE_SEARCH = 'SAVE_SEARCH';

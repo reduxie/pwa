@@ -16,7 +16,7 @@ module.exports = (
 ) => {
   const pool: any = connectToDb();
   const data: any = {
-    id: req.body.id,
+    id: req.body.image.id,
   };
   console.log(data);
   const query: {} = {
