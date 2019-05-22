@@ -14,12 +14,13 @@ module.exports = (
   res: express.Response,
   next: express.NextFunction
 ) => {
+  console.log('this is req.bodyyy', req.body)
   const pool: any = connectToDb();
   const data: dbObj = {
     userId: 1,
-    imgId: req.body.imgId,
-    imgUrl: req.body.imgUrl,
-    imgLikes: req.body.imgLikes,
+    imgId: req.body.id,
+    imgUrl: req.body.webformatURL,
+    imgLikes: req.body.likes,
   };
 
   const query: {} = {

@@ -15,6 +15,10 @@ export const actions = {
     type: actionTypes.GET_PROFILE,
     payload: images,
   }),
+  likedImage: (image: string) => ({
+    type: actionTypes.LIKED_IMAGE,
+    payload: image,
+  })
   // saveImage: (image: any) => ({actionTypes.SAVE_IMAGE, image}),
 };
 
@@ -28,7 +32,7 @@ export const getSearchImageAsync = (searchWord:string) => {
         })
         .then(response => response.json())
         .then(response => {
-            // console.log("this is the response from server", response)
+            console.log("this is the response from server", response)
             dispatch(actions.getSearchImage(response))
         })
     }
@@ -43,27 +47,26 @@ export const getProfileAsync = (userId: number) => {
         })
         .then(response => response.json())
         .then(response => {
-            console.log("this is the response from server", response)
+            // console.log("this is the response from server", response)
             dispatch(actions.getProfile(response))
         })
     }
 }
-// export const getData = data => ({
-//   type: types.GET_DATA,
-//   payload: data,
-// });
 
-// export const saveSearch = data => ({
-//   type: types.SAVE_SEARCH,
-//   payload: data,
-// });
+export const getLikedImageAsync = (image: any) => {
+  // console.log('inside getsearchimageasync', searchWord)
+  console.log('this is the image', image)
+  return function(dispatch: Dispatch) {
+      return fetch('http://localhost:3000/addImageToFavsTable', {
+          method: "POST",
+          headers: {"content-type": "application/json"},
+          body: JSON.stringify({image})
+      })
+      .then(response => response.json())
+      .then(response => {
+          console.log("this is the response from server", response)
+          dispatch(actions.likedImage(response))
+      })
+  }
+}
 
-// export const saveImage = data => ({
-//   type: types.SAVE_IMAGE,
-//   payload: data,
-// });
-
-// export const addToCollection = data => ({
-//   type: types.ADD_TO_COLLECTION,
-//   payload: data,
-// });
