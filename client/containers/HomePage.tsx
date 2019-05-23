@@ -42,7 +42,7 @@ interface IProps {
 
 const Homepage: React.FC<IProps> = (props) => {
       return (
-        <div>
+        <div id="homepage">
             <h1>
               Home Page
             </h1>

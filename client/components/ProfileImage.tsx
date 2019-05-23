@@ -6,10 +6,10 @@ import Card from '@material-ui/core/Card';
 
 const ProfileImage = (props: any) => {
     return (
-        <div>
+        <div className="display">
             {/* <Card> */}
                 <img src={props.image.img_url} className="displayImage" />
-                <DeleteIcon className="heart" onClick={(event) => props.deleteImage(props.image)} />
+                <DeleteIcon className="displayImage" onClick={(event) => props.deleteImage(props.image)} />
             {/* </Card> */}
             {/* <button onClick={(event) => props.deleteImage(props.image)}>DELETE</button> */}
         </div>

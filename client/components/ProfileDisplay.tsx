@@ -12,7 +12,7 @@ const ProfileDisplay: React.FC<IProps> = (props: any) => {
         profileImageArr.push(<ProfileImage image={props.profile[i]} imageId={props.profile[i].id} deleteImage={props.deleteImage} />);
     }
     return (
-        <div className="display">
+        <div id="profilePage">
             {profileImageArr}
         </div>
     ) 
