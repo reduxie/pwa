@@ -1,10 +1,17 @@
 import React from 'react';
+import DeleteIcon from '@material-ui/icons/Delete';
+import Card from '@material-ui/core/Card';
+import CardMedia from '@material-ui/core/CardMedia';
+
 
 const ProfileImage = (props: any) => {
     return (
         <div>
-            <img src={props.image.img_url} />
-            <button onClick={(event) => props.deleteImage(props.image)}>DELETE</button>
+            {/* <Card> */}
+                <img src={props.image.img_url} />
+                <DeleteIcon onClick={(event) => props.deleteImage(props.image)} />
+            {/* </Card> */}
+            {/* <button onClick={(event) => props.deleteImage(props.image)}>DELETE</button> */}
         </div>
     )
 }
