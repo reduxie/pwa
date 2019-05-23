@@ -78,6 +78,13 @@ app.post('/login',
   }
 )
 
+app.post('/signup',
+  authController.signupUser,
+  (req: express.Request, res: express.Response) => {
+    res.send(res.locals.data);
+  }
+)
+
 if (require.main === module) {
   app.listen(PORT, () => {
     console.log(`Server started at http://localhost:${PORT}`);
