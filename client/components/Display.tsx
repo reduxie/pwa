@@ -12,7 +12,7 @@ const Display: React.FC<IProps> = (props) => {
         imageArr.push(<Image image={props.images[i]} likedImage={props.likedImage} />);
     }
     return (
-        <div>
+        <div className="display">
             {imageArr}
         </div>
     ) 

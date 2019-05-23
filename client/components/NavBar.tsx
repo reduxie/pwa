@@ -13,19 +13,10 @@ interface INav {
 }
 
 const NavBar: React.FC<INav> = (props) => (
-    <div>
-        {/* // value={value}
-        // onChange={this.handleChange}
-        // showLabels
-    // className={classes.root} */}
-      {/* <BottomNavigation>
-      <Link to="/"><BottomNavigationAction  onClick={(event) => props.getProfile(props.user) } label="Recents" icon={<RestoreIcon />} /></Link>
-      <Link to="/profile"><BottomNavigationAction label="Favorites" icon={<Avatar />} /></Link>
-        <BottomNavigationAction label="Nearby" icon={<MailIcon />} />
-      </BottomNavigation> */}
-    <Link to="/"><button className="navbar">HOMEPAGE</button></Link> 
-    <Link to="/profile"><button className="navbar" onClick={(event) => props.getProfile(props.user) } >PROFILE</button></Link>
-    <button className="navbar" >Notifications</button>
+    <div id="navbar">
+        <Link to="/"><button className="navbutton">HOMEPAGE</button></Link> 
+        <Link to="/profile"><button className="navbutton" onClick={(event) => props.getProfile(props.user) } >PROFILE</button></Link>
+        <button className="navbutton">Notifications</button>
     </div> 
 );
 

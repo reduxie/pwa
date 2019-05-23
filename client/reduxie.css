@@ -1,0 +1,36 @@
+body {
+    width: 100%; 
+}
+
+h1 {
+    font-size: 60px;
+}
+
+#search {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+#navbar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    position: fixed;
+    bottom: 5%;
+    background-color: white;
+}
+
+.navbutton {
+   padding: 10px;
+   margin: 0;
+
+}
+
+#display {
+    display: flex;
+    flex-direction: row; 
+}

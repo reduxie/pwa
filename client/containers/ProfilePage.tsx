@@ -27,9 +27,9 @@ interface IProfile {
 const Profile: React.FC<IProfile> = (props) => {
       return (
         <div>
-            <h2>
+            <h1>
               Profile Page
-            </h2>
+            </h1>
             <ProfileDisplay profile={props.profile} deleteImage={props.deleteImage} />
             <NavBar getProfile={props.getProfile} user={props.user} />
         </div>

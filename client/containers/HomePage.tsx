@@ -44,9 +44,9 @@ interface IProps {
 const Homepage: React.FC<IProps> = (props) => {
       return (
         <div>
-            <h2>
+            <h1>
               Home Page
-            </h2>
+            </h1>
             <Search saveSearch={props.saveSearch} getSearchImage={props.getSearchImage} searchWord={props.searchWord}/>
             <Display images={props.images} likedImage={props.likedImage} />
             <NavBar getProfile={props.getProfile} user={props.user} />

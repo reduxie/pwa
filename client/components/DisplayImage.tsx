@@ -7,8 +7,8 @@ const Image = (props: any) => {
     return (
         <div>
             <Card>
-                <img src={props.image.webformatURL} />
-                <FavoriteIcon onClick={(event) => props.likedImage(props.image)} />
+                <img src={props.image.webformatURL} className="displayImage"/>
+                <FavoriteIcon className="heart" onClick={(event) => props.likedImage(props.image)} />
             </Card>
         </div>
     )
