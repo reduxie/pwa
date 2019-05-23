@@ -7,6 +7,7 @@ export enum actionTypes {
   GET_PROFILE = 'GET_PROFILE',
   DELETE_IMAGE = 'DELETE_IMAGE',
   MODAL_BOOL = 'MODAL_BOOL',
+  LOGIN = 'LOGIN',
 }
 
 // export const SAVE_SEARCH = 'SAVE_SEARCH';

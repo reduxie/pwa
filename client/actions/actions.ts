@@ -26,8 +26,11 @@ export const actions = {
     type: actionTypes.MODAL_BOOL,
     payload: modalObj,
   }),
+  loginUser: (userId: number, userName: string) => ({
+    type: actionTypes.LOGIN,
+    payload: { userId, userName },
+  }),
 };
-
 export const getSearchImageAsync = (searchWord: string) =>
   function(dispatch: Dispatch) {
     return fetch('http://localhost:3000/searchImages', {
@@ -73,4 +76,22 @@ export const deleteImageAsync = (image: any) =>
     }).then(() => {
       dispatch(actions.deleteImage(image));
     });
+  };
+
+export const loginUserAsync = (userName: string, pw: string) =>
+  function(dispatch: Dispatch) {
+    return fetch('http://localhost:3000/login', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ userName, pw }),
+    })
+      .then(response => response.json())
+      .then(response => {
+        // if response status is 200
+        console.log(response);
+        dispatch(actions.loginUser(response.userId, response.userName));
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
