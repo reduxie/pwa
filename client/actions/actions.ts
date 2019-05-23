@@ -22,6 +22,10 @@ export const actions = {
     type: actionTypes.DELETE_IMAGE,
     payload: image,
   }),
+  modalBool: (modalObj: {}) => ({
+    type: actionTypes.MODAL_BOOL,
+    payload: modalObj,
+  }),
   loginUser: (userId: number, userName: string) => ({
     type: actionTypes.LOGIN,
     payload: {userId, userName}
@@ -30,67 +34,61 @@ export const actions = {
     type: actionTypes.SIGNUP,
     payload: {userId, userName}
   })
+
 };
+export const getSearchImageAsync = (searchWord: string) =>
+  function(dispatch: Dispatch) {
+    return fetch('http://localhost:3000/searchImages', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ image: searchWord }),
+    })
+      .then(response => response.json())
+      .then(response => {
+        dispatch(actions.getSearchImage(response));
+      });
+  };
 
-export const getSearchImageAsync = (searchWord:string) => {
-    return function(dispatch: Dispatch) {
-        return fetch('http://localhost:3000/searchImages', {
-            method: "POST",
-            headers: {"content-type": "application/json"},
-            body: JSON.stringify({"image": searchWord})
-        })
-        .then(response => response.json())
-        .then(response => {
-            dispatch(actions.getSearchImage(response))
-        })
-    }
-}
+export const getProfileAsync = (userId: number) =>
+  function(dispatch: Dispatch) {
+    return fetch(`http://localhost:3000/getDbImages?userId=${userId}`, {
+      method: 'GET',
+      headers: { 'content-type': 'application/json' },
+    })
+      .then(response => response.json())
+      .then(response => {
+        dispatch(actions.getProfile(response));
+      });
+  };
 
-export const getProfileAsync = (userId: number) => {
-    return function(dispatch: Dispatch) {
-        return fetch(`http://localhost:3000/getDbImages?userId=${userId}`, {
-            method: "GET",
-            headers: {"content-type": "application/json"},
-        })
-        .then(response => response.json())
-        .then(response => {
-            dispatch(actions.getProfile(response))
-        })
-    }
-}
+export const getLikedImageAsync = (image: any) =>
+  function(dispatch: Dispatch) {
+    return fetch('http://localhost:3000/addImageToFavsTable', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ image }),
+    }).then(() => {
+      dispatch(actions.likedImage(image));
+    });
+  };
 
-export const getLikedImageAsync = (image: any) => {
-  return function(dispatch: Dispatch) {
-      return fetch('http://localhost:3000/addImageToFavsTable', {
-          method: "POST",
-          headers: {"content-type": "application/json"},
-          body: JSON.stringify({image})
-      })
-      .then(() => {
-          dispatch(actions.likedImage(image))
-      })
-  }
-}
+export const deleteImageAsync = (image: any) =>
+  function(dispatch: Dispatch) {
+    return fetch('http://localhost:3000/removeImageFromFavTable', {
+      method: 'DELETE',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ image }),
+    }).then(() => {
+      dispatch(actions.deleteImage(image));
+    });
+  };
 
-export const deleteImageAsync = (image: any) => {
-  return function(dispatch: Dispatch) {
-      return fetch('http://localhost:3000/removeImageFromFavTable', {
-          method: "DELETE",
-          headers: {"content-type": "application/json"},
-          body: JSON.stringify({image})
-      })
-      .then(() => {
-          dispatch(actions.deleteImage(image))
-      })
-  }
-}
-
-export const loginUserAsync = (userName: string, pw: string) => {
-  return function(dispatch: Dispatch) {
+export const loginUserAsync = (userName: string, pw: string) =>
+  function(dispatch: Dispatch) {
     return fetch('http://localhost:3000/login', {
       method: 'POST',
-      headers: {'content-type': 'application/json'},
-      body: JSON.stringify({userName, pw})
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ userName, pw }),
     })
     .then(response => response.json())
     .then(response => {
