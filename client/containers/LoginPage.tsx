@@ -6,6 +6,8 @@ import { Redirect } from 'react-router-dom'
 import SignupBox from './../components/Signup';
 import LoginBox from './../components/LoginBox';
 
+import Reduxie from 'reduxie';
+
 import { loginUserAsync, signupUserAsync } from '../actions/actions';
 
 
@@ -24,7 +26,9 @@ const mapDispatchToProps = (dispatch: any) => ({
 
   signupUser: (userName: string, password: string) => {
     dispatch(signupUserAsync(userName, password));
-  }
+  },
+
+  getIDBState: Reduxie.GetReduxieState('mrjbabys pinterest', dispatch),
 
 });
 
@@ -32,9 +36,13 @@ interface IProps {
     userId: number | undefined;
     loginUser: (name: string, pw: string) => void;
     signupUser: (name: string, pw: string) => void;
+    getIDBState: () => void;
 }
 
 const LoginPage: React.FC<IProps> = (props) => {
+
+      // hooked up!
+      React.useEffect(props.getIDBState, []);
 
       return props.userId ?
         (<Redirect to="/home"></Redirect>) :
