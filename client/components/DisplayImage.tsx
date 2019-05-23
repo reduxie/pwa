@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Card from '@material-ui/core/Card';
+// import Card from '@material-ui/core/Card';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import { actions } from '../actions/actions';
 // import { withStyles } from '@material-ui/core/styles';
@@ -20,31 +20,31 @@ const mapDispatchToProps = (dispatch: any) => ({
 });
 
 const Image = (props: any) => (
-  <div className="display"
-    onClick={e => {
-      if (props.bool === false) {
-        const changeObj: {} = {
-          modalURL: props.image.webformatURL,
-          modalBool: true,
-        };
-        props.modalBool(changeObj);
-      }
-      if (props.bool === true) {
-        const changeObj: {} = {
-          modalURL: '',
-          modalBool: false,
-        };
-        props.modalBool(changeObj);
-      }
-    }}
-  >
-    {/* <Card> */}
+  <div>
+    <div
+      onClick={e => {
+        if (props.bool === false) {
+          const changeObj: {} = {
+            modalURL: props.image.webformatURL,
+            modalBool: true,
+          };
+          props.modalBool(changeObj);
+        }
+        if (props.bool === true) {
+          const changeObj: {} = {
+            modalURL: '',
+            modalBool: false,
+          };
+          props.modalBool(changeObj);
+        }
+      }}
+    >
       <img src={props.image.webformatURL} className="displayImage" />
-      <FavoriteIcon
-        className="displayImage"
-        onClick={event => props.likedImage(props.image)}
-      />
-    {/* </Card> */}
+    </div>
+    <FavoriteIcon
+      className="heart"
+      onClick={event => props.likedImage(props.image)}
+    />
   </div>
 );
 

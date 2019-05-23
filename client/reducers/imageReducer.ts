@@ -40,6 +40,12 @@ const imageReducer = (state = initialState, action: Action) => {
         modalBool: action.payload.modalBool,
         modalURL: action.payload.modalURL,
       };
+    case actionTypes.DROP_MODAL:
+      return {
+        ...state,
+        modalBool: false,
+        modalURL: '',
+      };
     case actionTypes.DELETE_IMAGE:
       const copiedState = state.myImages.slice();
       for (let i = 0; state.myImages.length; i++) {
