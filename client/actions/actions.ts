@@ -25,6 +25,10 @@ export const actions = {
   loginUser: (userId: number, userName: string) => ({
     type: actionTypes.LOGIN,
     payload: {userId, userName}
+  }),
+  signupUser: (userId: number, userName: string) => ({
+    type: actionTypes.SIGNUP,
+    payload: {userId, userName}
   })
 };
 
@@ -93,6 +97,25 @@ export const loginUserAsync = (userName: string, pw: string) => {
       //if response status is 200
       console.log(response);
       dispatch(actions.loginUser(response.userId, response.userName));
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }
+}
+
+export const signupUserAsync = (userName: string, pw: string) => {
+  return function(dispatch: Dispatch) {
+    return fetch('http://localhost:3000/signup', {
+      method: 'POST',
+      headers: {'content-type': 'application/json'},
+      body: JSON.stringify({userName, pw})
+    })
+    .then(response => response.json())
+    .then(response => {
+      //if response status is 200
+      console.log(response);
+      dispatch(actions.signupUser(response.userId, response.userName));
     })
     .catch(err => {
       console.log(err);

@@ -6,7 +6,7 @@ import { Redirect } from 'react-router-dom'
 import SignupBox from './../components/Signup';
 import LoginBox from './../components/LoginBox';
 
-import { loginUserAsync } from '../actions/actions';
+import { loginUserAsync, signupUserAsync } from '../actions/actions';
 
 
 
@@ -22,25 +22,29 @@ const mapDispatchToProps = (dispatch: any) => ({
     dispatch(loginUserAsync(userName, password));
   },
 
+  signupUser: (userName: string, password: string) => {
+    dispatch(signupUserAsync(userName, password));
+  }
+
 });
 
 interface IProps {
     userId: number | undefined;
     loginUser: (name: string, pw: string) => void;
+    signupUser: (name: string, pw: string) => void;
 }
 
-
 const LoginPage: React.FC<IProps> = (props) => {
-      console.log(props);
+
       return props.userId ?
         (<Redirect to="/home"></Redirect>) :
         (
         <div>
           <h1> Welcome to Mr. JBABY!'s Pinterest Clone! </h1>
           <LoginBox loginUser={props.loginUser}> </LoginBox>
-          <SignupBox> </SignupBox>
+          <SignupBox signupUser={props.signupUser}> </SignupBox>
         </div>
-  )
+        )
 }
 
 

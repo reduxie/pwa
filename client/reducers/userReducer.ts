@@ -49,6 +49,12 @@ const userReducer = (state = initialState, action:Action) => {
         userId: action.payload.userId,
         userName: action.payload.userName
       }
+    case actionTypes.SIGNUP:
+      return {
+        ...state,
+        userId: action.payload.userId,
+        userName: action.payload.userName
+      }
     default:
       return state;
   }
