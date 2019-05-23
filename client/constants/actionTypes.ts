@@ -8,7 +8,8 @@ export enum actionTypes {
   DELETE_IMAGE = 'DELETE_IMAGE',
   MODAL_BOOL = 'MODAL_BOOL',
   LOGIN = 'LOGIN',
-  SIGNUP = 'SIGNUP'
+  SIGNUP = 'SIGNUP',
+  DROP_MODAL = 'DROP_MODAL',
 }
 
 // export const SAVE_SEARCH = 'SAVE_SEARCH';
