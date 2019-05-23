@@ -83,8 +83,8 @@ export const deleteImageAsync = (image: any) =>
     });
   };
 
-export const loginUserAsync = (userName: string, pw: string) =>
-  function(dispatch: Dispatch) {
+export const loginUserAsync = (userName: string, pw: string) => {
+  return function(dispatch: Dispatch) {
     return fetch('http://localhost:3000/login', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
