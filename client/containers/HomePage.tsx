@@ -9,7 +9,6 @@ import Display from "./../components/Display";
 const mapStateToProps = (store:any) => ({
   searchWord: store.user.searchWord,
   images: store.image.searchImages,
-  user: store.image.user_id 
 });
 
 
@@ -31,9 +30,9 @@ const mapDispatchToProps = (dispatch:any) => ({
 interface IProps {
     saveSearch: (e: any) => void;
     addSearch:(e: any) => void;
-    getSearchImage: (searchWord: string) => void; 
+    getSearchImage: (searchWord: string) => void;
     getProfile: (e: any) => void;
-    likedImage?: (images: any) => void; 
+    likedImage?: (images: any) => void;
     searchWord: string;
     images: any[];
     user: number;

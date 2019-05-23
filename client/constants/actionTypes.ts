@@ -5,8 +5,10 @@ export enum actionTypes {
     LIKED_IMAGE = 'LIKED_IMAGE',
     GET_SEARCH_IMAGE = 'GET_SEARCH_IMAGE',
     GET_PROFILE = 'GET_PROFILE',
-    DELETE_IMAGE = 'DELETE_IMAGE'
-} 
+    DELETE_IMAGE = 'DELETE_IMAGE',
+    LOGIN = 'LOGIN',
+    SIGNUP ='SIGNUP'
+}
 
 // export const SAVE_SEARCH = 'SAVE_SEARCH';
 // export type SAVE_SEARCH = typeof SAVE_SEARCH;
