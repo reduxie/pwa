@@ -16,9 +16,8 @@ const mapDispatchToProps = (dispatch: any) => ({
 });
 
 const ProfileImage = (props: any) => (
-  <div className="display">
-    {/* <Card> */}
-    <div
+  <div>
+    <div className="display"
       onClick={e => {
         if (props.bool === false) {
           const changeObj: {} = {
@@ -38,12 +37,11 @@ const ProfileImage = (props: any) => (
     >
       <img src={props.image.img_url} className="displayImage" />
     </div>
-    <DeleteIcon
-      className="displayImage"
-      onClick={event => props.deleteImage(props.image)}
-    />
-    {/* </Card> */}
-    {/* <button onClick={(event) => props.deleteImage(props.image)}>DELETE</button> */}
+    <div className="displayImage">
+      <DeleteIcon 
+        onClick={event => props.deleteImage(props.image)}
+      />
+    </div>
   </div>
 );
 export default connect(

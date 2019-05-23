@@ -51,12 +51,19 @@ h1 {
 #modal {
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
+  left: 27%;
+  top: 10%;
+  width: 38%; /* Full width */
+  height: 50%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
+  margin: 0 auto;
+  text-align: center;
+  border: 5px gray solid;
+  border-radius: 6px;
+  background-color: black;
 }
+
+
 
 .navbutton {
   padding: 10px;
@@ -74,6 +81,9 @@ h1 {
 
 .displayImage {
   max-width: 38%;
-  max-height: auto;
+  height: auto;
   margin: 0 auto;
+  text-align: center;
 }
+
+
