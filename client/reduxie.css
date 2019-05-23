@@ -3,11 +3,11 @@ body {
 }
 
 #homepage {
-    margin-bottom: 20%;
+    margin-bottom: 5%;
 }
 
 #profilePage {
-    margin-bottom: 20%;
+    margin-bottom: 5%;
 }
 
 h1 {
@@ -45,13 +45,13 @@ h1 {
     bottom: 0;
     background-color: white;
     border-top: 2px solid black;
+    height: 75px;
 }
 
 .navbutton {
    padding: 10px;
    margin: 10px;
    border-radius: 4px;
-   
 }
 
 .display {
@@ -59,6 +59,7 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 .displayImage {
