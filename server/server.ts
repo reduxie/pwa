@@ -6,6 +6,7 @@ const imagesAPIController = require('./controllers/imagesAPIController');
 const addToDbController = require('./controllers/addToDbController');
 const getDbImagesController = require('./controllers/getDbImagesController');
 const deleteFromDbController = require('./controllers/deleteFromDbController');
+const authController = require('./controllers/authController');
 
 const app = express();
 const { PORT = 3000 } = process.env;
@@ -69,6 +70,13 @@ app.delete(
     res.send('in   /removeImageFromFavTable');
   }
 );
+
+app.post('/login',
+  authController.loginUser,
+  (req: express.Request, res: express.Response) => {
+    res.send(res.locals.data);
+  }
+)
 
 if (require.main === module) {
   app.listen(PORT, () => {
