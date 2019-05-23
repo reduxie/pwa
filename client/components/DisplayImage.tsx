@@ -1,10 +1,15 @@
 import React from 'react';
+import Card from '@material-ui/core/Card';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+
 
 const Image = (props: any) => {
     return (
         <div>
-            <img src={props.image.webformatURL} />
-            <button onClick={(event) => props.likedImage(props.image)}>LIKE</button>
+            <Card>
+                <img src={props.image.webformatURL} />
+                <FavoriteIcon onClick={(event) => props.likedImage(props.image)} />
+            </Card>
         </div>
     )
 }
