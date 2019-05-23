@@ -21,6 +21,10 @@ export const actions = {
   deleteImage: (image: any) => ({
     type: actionTypes.DELETE_IMAGE,
     payload: image,
+  }),
+  loginUser: (userId: number, userName: string) => ({
+    type: actionTypes.LOGIN,
+    payload: {userId, userName}
   })
 };
 
@@ -77,3 +81,21 @@ export const deleteImageAsync = (image: any) => {
   }
 }
 
+export const loginUserAsync = (userName: string, pw: string) => {
+  return function(dispatch: Dispatch) {
+    return fetch('http://localhost:3000/login', {
+      method: 'POST',
+      headers: {'content-type': 'application/json'},
+      body: JSON.stringify({userName, pw})
+    })
+    .then(response => response.json())
+    .then(response => {
+      //if response status is 200
+      console.log(response);
+      dispatch(actions.loginUser(response.userId, response.userName));
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }
+}
