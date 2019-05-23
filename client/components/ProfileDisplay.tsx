@@ -22,10 +22,10 @@ const mapDispatchToProps = (dispatch: any) => ({
 const ProfileDisplay: React.FC<IProps> = (props: any) => {
   let modal;
   if (props.bool) {
-    console.log('inside modal');
+    // console.log('inside modal');
     modal = (
       <div id="modal" onClick={e => props.dropModal()}>
-        <img src={props.modalURL} />
+        <img src={props.modalURL}  />
       </div>
     );
   }
