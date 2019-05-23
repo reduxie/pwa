@@ -5,11 +5,9 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 
 const Image = (props: any) => {
     return (
-        <div>
-            <Card>
+        <div className="display">
                 <img src={props.image.webformatURL} className="displayImage"/>
-                <FavoriteIcon className="heart" onClick={(event) => props.likedImage(props.image)} />
-            </Card>
+                <FavoriteIcon className="displayImage" onClick={(event) => props.likedImage(props.image)} />
         </div>
     )
 }
