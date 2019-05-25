@@ -25,7 +25,7 @@ const ProfileDisplay: React.FC<IProps> = (props: any) => {
     // console.log('inside modal');
     modal = (
       <div id="modal" onClick={e => props.dropModal()}>
-        <img src={props.modalURL}  />
+        <img src={props.modalURL} />
       </div>
     );
   }
