@@ -8,6 +8,7 @@ export enum actionTypes {
   DELETE_IMAGE = 'DELETE_IMAGE',
   MODAL_BOOL = 'MODAL_BOOL',
   LOGIN = 'LOGIN',
+  LOGOUT = 'LOGOUT',
   SIGNUP = 'SIGNUP',
   DROP_MODAL = 'DROP_MODAL',
 }

@@ -33,6 +33,9 @@ export const actions = {
     type: actionTypes.LOGIN,
     payload: { userId, userName },
   }),
+  logoutUser: () => ({
+    type: actionTypes.LOGOUT,
+  }),
   signupUser: (userId: number, userName: string) => ({
     type: actionTypes.SIGNUP,
     payload: { userId, userName },
