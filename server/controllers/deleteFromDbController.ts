@@ -18,7 +18,7 @@ module.exports = (
   const data: any = {
     id: req.body.image.id,
   };
-  console.log(data);
+  console.log('req.body & data:\n\n', req.body, data);
   const query: {} = {
     text: `DELETE FROM user_img WHERE id = ($1)`,
     values: [data.id],

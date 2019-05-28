@@ -17,11 +17,15 @@ const mapDispatchToProps = (dispatch: any) => ({
   modalBool: (event: {}) => {
     dispatch(actions.modalBool(event));
   },
+  likedImage: (event: {}) => {
+    dispatch(actions.likedImage(event));
+  },
 });
 
 const Image = (props: any) => (
   <div>
-    <div className="display"
+    <div
+      className="display"
       onClick={e => {
         if (props.bool === false) {
           const changeObj: {} = {
@@ -42,9 +46,7 @@ const Image = (props: any) => (
       <img src={props.image.webformatURL} className="displayImage" />
     </div>
     <div className="displayImage">
-      <FavoriteIcon
-        onClick={event => props.likedImage(props.image)}
-      />
+      <FavoriteIcon onClick={event => props.likedImage(props.image)} />
     </div>
   </div>
 );

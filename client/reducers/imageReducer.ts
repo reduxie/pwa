@@ -8,7 +8,6 @@ interface Action {
 interface ImageState {
   myImages: any[];
   searchImages: any[];
-  user_id: number;
   modalBool: any;
   modalURL: string;
 }
@@ -16,7 +15,6 @@ interface ImageState {
 const initialState: ImageState = {
   myImages: [],
   searchImages: [],
-  user_id: 1,
   modalBool: false,
   modalURL: '',
 };
@@ -46,18 +44,23 @@ const imageReducer = (state = initialState, action: Action) => {
         modalBool: false,
         modalURL: '',
       };
-    case actionTypes.DELETE_IMAGE:
-      const copiedState = state.myImages.slice();
-      for (let i = 0; state.myImages.length; i++) {
-        if (state.myImages[i].id === action.payload.id) {
-          copiedState.splice(i, 1);
-          break;
-        }
-      }
+    case actionTypes.LOGOUT:
       return {
         ...state,
-        myImages: copiedState,
+        searchImages: [],
       };
+    // case actionTypes.DELETE_IMAGE:
+    //   const copiedState = state.myImages.slice();
+    //   for (let i = 0; state.myImages.length; i++) {
+    //     if (state.myImages[i].id === action.payload.id) {
+    //       copiedState.splice(i, 1);
+    //       break;
+    //     }
+    //   }
+    //   return {
+    //     ...state,
+    //     myImages: copiedState,
+    //   };
     default:
       return state;
   }

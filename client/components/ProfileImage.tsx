@@ -17,11 +17,12 @@ const mapDispatchToProps = (dispatch: any) => ({
 
 const ProfileImage = (props: any) => (
   <div>
-    <div className="display"
+    <div
+      className="display"
       onClick={e => {
         if (props.bool === false) {
           const changeObj: {} = {
-            modalURL: props.image.img_url,
+            modalURL: props.userLikes.webformatURL,
             modalBool: true,
           };
           props.modalBool(changeObj);
@@ -35,12 +36,10 @@ const ProfileImage = (props: any) => (
         }
       }}
     >
-      <img src={props.image.img_url} className="displayImage" />
+      <img src={props.image.webformatURL} className="displayImage" />
     </div>
     <div className="displayImage">
-      <DeleteIcon 
-        onClick={event => props.deleteImage(props.image)}
-      />
+      <DeleteIcon onClick={event => props.deleteImageAsync(props.image)} />
     </div>
   </div>
 );

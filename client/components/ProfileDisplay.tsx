@@ -4,8 +4,9 @@ import ProfileImage from './ProfileImage';
 import { actions } from '../actions/actions';
 
 interface IProps {
-  profile: any[];
-  deleteImage: {};
+  // myImages: any[];
+  deleteImageAsync: {};
+  userLikes: any[];
 }
 
 const mapStateToProps = (store: any) => ({
@@ -22,7 +23,6 @@ const mapDispatchToProps = (dispatch: any) => ({
 const ProfileDisplay: React.FC<IProps> = (props: any) => {
   let modal;
   if (props.bool) {
-    // console.log('inside modal');
     modal = (
       <div id="modal" onClick={e => props.dropModal()}>
         <img src={props.modalURL} />
@@ -30,19 +30,20 @@ const ProfileDisplay: React.FC<IProps> = (props: any) => {
     );
   }
   const profileImageArr = [];
-  for (let i = 0; i < props.profile.length; i++) {
+  
+  for (let i = 0; i < props.userLikes.length; i++) {
     profileImageArr.push(
       <ProfileImage
-        image={props.profile[i]}
-        imageId={props.profile[i].id}
-        deleteImage={props.deleteImage}
+        image={props.userLikes[i]}
+        imageId={props.userLikes[i].id}
+        deleteImageAsync={props.deleteImageAsync}
       />
     );
   }
   return (
     <div>
       {modal}
-      <div id="profilePage">{profileImageArr}</div>);
+      <div id="profilePage">{profileImageArr}</div>
     </div>
   );
 };
