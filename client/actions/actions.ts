@@ -79,7 +79,7 @@ export const getLikedImageAsync = (image: any) =>
 
 export const deleteImageAsync = (image: any) =>
   function(dispatch: Dispatch) {
-    console.log('this is the image:\n', image);
+    
     return fetch('http://localhost:3000/removeImageFromFavTable', {
       method: 'DELETE',
       headers: { 'content-type': 'application/json' },
