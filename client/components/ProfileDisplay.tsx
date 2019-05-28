@@ -30,7 +30,7 @@ const ProfileDisplay: React.FC<IProps> = (props: any) => {
     );
   }
   const profileImageArr = [];
-  console.log('inside profileDisp\n', props.userLikes);
+  
   for (let i = 0; i < props.userLikes.length; i++) {
     profileImageArr.push(
       <ProfileImage
