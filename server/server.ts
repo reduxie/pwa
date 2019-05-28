@@ -35,7 +35,6 @@ app.use(function(
   return next();
 });
 
-
 app.get(
   '/getDbImages',
   getDbImagesController,
@@ -45,14 +44,14 @@ app.get(
   }
 );
 
-  // POST to search images from api by keyword
-  app.post(
-    '/searchImages',
-    imagesAPIController,
-    (req: express.Request, res: express.Response) => {
-      res.send(res.locals.data);
-    }
-  );
+// POST to search images from api by keyword
+app.post(
+  '/searchImages',
+  imagesAPIController,
+  (req: express.Request, res: express.Response) => {
+    res.send(res.locals.data);
+  }
+);
 
 app.post(
   '/addImageToFavsTable',
@@ -71,19 +70,21 @@ app.delete(
   }
 );
 
-app.post('/login',
+app.post(
+  '/login',
   authController.loginUser,
   (req: express.Request, res: express.Response) => {
     res.send(res.locals.data);
   }
-)
+);
 
-app.post('/signup',
+app.post(
+  '/signup',
   authController.signupUser,
   (req: express.Request, res: express.Response) => {
     res.send(res.locals.data);
   }
-)
+);
 
 if (require.main === module) {
   app.listen(PORT, () => {
