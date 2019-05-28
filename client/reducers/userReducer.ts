@@ -37,9 +37,22 @@ const userReducer = (state = initialState, action: Action) => {
     case actionTypes.LIKED_IMAGE:
       likes = state.userLikes.slice();
       likes.push(action.payload);
+      console.log('\n\npayload being delivered:\n\n', likes, action.payload);
       return {
         ...state,
         userLikes: likes,
+      };
+    case actionTypes.DELETE_IMAGE:
+      const copiedState = state.userLikes.slice();
+      for (let i = 0; state.userLikes.length; i++) {
+        if (state.userLikes[i].id === action.payload.id) {
+          copiedState.splice(i, 1);
+          break;
+        }
+      }
+      return {
+        ...state,
+        userLikes: copiedState,
       };
     case actionTypes.LOGIN:
       return {
@@ -50,6 +63,7 @@ const userReducer = (state = initialState, action: Action) => {
     case actionTypes.LOGOUT:
       return {
         ...state,
+        userLikes: [],
         userId: null,
         userName: null,
       };

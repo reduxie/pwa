@@ -18,7 +18,7 @@ export const actions = {
     type: actionTypes.LIKED_IMAGE,
     payload: image,
   }),
-  deleteImage: (image: any) => ({
+  deleteImageAsync: (image: any) => ({
     type: actionTypes.DELETE_IMAGE,
     payload: image,
   }),
@@ -79,13 +79,18 @@ export const getLikedImageAsync = (image: any) =>
 
 export const deleteImageAsync = (image: any) =>
   function(dispatch: Dispatch) {
+    console.log('this is the image:\n', image);
     return fetch('http://localhost:3000/removeImageFromFavTable', {
       method: 'DELETE',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({ image }),
-    }).then(() => {
-      dispatch(actions.deleteImage(image));
-    });
+    })
+      .then(() => {
+        dispatch(actions.deleteImageAsync(image));
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
 export const loginUserAsync = (userName: string, pw: string) =>

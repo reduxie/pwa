@@ -31,7 +31,6 @@ const Display: React.FC<IProps> = (props: any) => {
   let modal;
   // console.log()
   if (props.bool) {
-    console.log('inside modal');
     modal = (
       <div id="modal" onClick={e => props.dropModal()}>
         <img src={props.modalURL} />
@@ -41,7 +40,7 @@ const Display: React.FC<IProps> = (props: any) => {
   return (
     <div>
       {modal}
-      <div className="display">{imageArr}</div>;
+      <div className="display">{imageArr}</div>
     </div>
   );
 };

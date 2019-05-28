@@ -16,7 +16,7 @@ module.exports = (
 ) => {
   const pool: any = connectToDb();
   const data: any = {
-    userId: 1,
+    userId: req.params.userId,
   };
 
   const query: {} = {

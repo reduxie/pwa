@@ -16,7 +16,7 @@ module.exports = (
 ) => {
   const pool: any = connectToDb();
   const data: dbObj = {
-    userId: 1,
+    userId: req.body.userId,
     imgId: req.body.image.id,
     imgUrl: req.body.image.webformatURL,
     imgLikes: req.body.image.likes,

@@ -6,15 +6,16 @@ import ProfileDisplay from '../components/ProfileDisplay';
 import { getProfileAsync, deleteImageAsync, actions } from '../actions/actions';
 
 const mapStateToProps = (store: any) => ({
-  profile: store.image.myImages,
+  //  store.image.myImages,
   userId: store.user.userId,
+  userLikes: store.user.userLikes,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
   getProfile: (userId: number) => {
     dispatch(getProfileAsync(userId));
   },
-  deleteImage: (image: any) => {
+  deleteImageAsync: (image: any) => {
     dispatch(deleteImageAsync(image));
   },
   logoutUser: () => {
@@ -23,17 +24,22 @@ const mapDispatchToProps = (dispatch: any) => ({
 });
 
 interface IProfile {
-  profile: any[];
+  // myImages: any[];
   getProfile: (e: any) => void;
   userId: number;
-  deleteImage: (e: any) => void;
+  deleteImageAsync: (e: any) => void;
   logoutUser: () => void;
+  userLikes: any[];
 }
 
 const Profile: React.FC<IProfile> = props => (
+  // console.log('userLikes:\n', props.userLikes);
   <div>
     <h1>Profile Page</h1>
-    <ProfileDisplay profile={props.profile} deleteImage={props.deleteImage} />
+    <ProfileDisplay
+      userLikes={props.userLikes}
+      deleteImageAsync={props.deleteImageAsync}
+    />
     <NavBar
       getProfile={props.getProfile}
       userId={props.userId}
