@@ -25,7 +25,11 @@ const Display: React.FC<IProps> = (props: any) => {
   const imageArr = [];
   for (let i = 0; i < props.images.length; i++) {
     imageArr.push(
-      <Image image={props.images[i]} likedImage={props.likedImage} />
+      <Image
+        image={props.images[i]}
+        key={props.images[i].id}
+        likedImage={props.likedImage}
+      />
     );
   }
   let modal;

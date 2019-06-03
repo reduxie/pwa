@@ -1,24 +1,32 @@
 import { Dispatch } from 'redux';
 import { actionTypes } from '../constants/actionTypes';
+import {
+  SaveSearch,
+  GetSearchImage,
+  ImageResults,
+  GetProfile,
+  ImageObj,
+  LikedImage,
+} from './types';
 
 export const actions = {
-  saveSearch: (data: string) => ({
+  saveSearch: (data: string): SaveSearch => ({
     type: actionTypes.SAVE_SEARCH,
     payload: data,
   }),
-  getSearchImage: (images: any[]) => ({
+  getSearchImage: (images: ImageResults): GetSearchImage => ({
     type: actionTypes.GET_SEARCH_IMAGE,
     payload: images,
   }),
-  getProfile: (images: any[]) => ({
+  getProfile: (images: ImageResults): GetProfile => ({
     type: actionTypes.GET_PROFILE,
     payload: images,
   }),
-  likedImage: (image: any) => ({
+  likedImage: (image: ImageObj): LikedImage => ({
     type: actionTypes.LIKED_IMAGE,
     payload: image,
   }),
-  deleteImageAsync: (image: any) => ({
+  deleteImageAsync: (image: ImageObj) => ({
     type: actionTypes.DELETE_IMAGE,
     payload: image,
   }),
@@ -50,6 +58,7 @@ export const getSearchImageAsync = (searchWord: string) =>
     })
       .then(response => response.json())
       .then(response => {
+        console.log('response', response);
         dispatch(actions.getSearchImage(response));
       });
   };
@@ -79,7 +88,6 @@ export const getLikedImageAsync = (image: any) =>
 
 export const deleteImageAsync = (image: any) =>
   function(dispatch: Dispatch) {
-    
     return fetch('http://localhost:3000/removeImageFromFavTable', {
       method: 'DELETE',
       headers: { 'content-type': 'application/json' },
