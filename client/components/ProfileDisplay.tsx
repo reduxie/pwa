@@ -10,7 +10,7 @@ interface IProps {
 }
 
 const mapStateToProps = (store: any) => ({
-  bool: store.image.modalToggle,
+  modalToggle: store.image.modalToggle,
   modalURL: store.image.modalURL,
 });
 
@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch: any) => ({
 
 const ProfileDisplay: React.FC<IProps> = (props: any) => {
   let modal;
-  if (props.bool) {
+  if (props.modalToggle) {
     modal = (
       <div id="modal" onClick={e => props.dropModal()}>
         <img src={props.modalURL} />

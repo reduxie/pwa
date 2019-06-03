@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 // import Card from '@material-ui/core/Card';
-// import { bool } from 'prop-types';
+// import { modalToggle } from 'prop-types';
 import Image from './DisplayImage';
 import { actions } from '../actions/actions';
 
 const mapStateToProps = (store: any) => ({
-  bool: store.image.modalToggle,
+  modalToggle: store.image.modalToggle,
   modalURL: store.image.modalURL,
 });
 
@@ -34,7 +34,7 @@ const Display: React.FC<IProps> = (props: any) => {
   }
   let modal;
   // console.log()
-  if (props.bool) {
+  if (props.modalToggle) {
     modal = (
       <div id="modal" onClick={e => props.dropModal()}>
         <img src={props.modalURL} />

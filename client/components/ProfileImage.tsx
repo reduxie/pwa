@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { actions } from '../actions/actions';
 
 const mapStateToProps = (store: any) => ({
-  bool: store.image.modalToggle,
+  modalToggle: store.image.modalToggle,
   modalURL: store.image.modalURL,
 });
 
@@ -20,14 +20,14 @@ const ProfileImage = (props: any) => (
     <div
       className="display"
       onClick={e => {
-        if (props.bool === false) {
+        if (props.modalToggle === false) {
           const changeObj: {} = {
             modalURL: props.userLikes.webformatURL,
             modalToggle: true,
           };
           props.modalToggle(changeObj);
         }
-        if (props.bool === true) {
+        if (props.modalToggle === true) {
           const changeObj: {} = {
             modalURL: '',
             modalToggle: false,

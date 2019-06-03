@@ -10,7 +10,7 @@ import { ImageObj } from '../actions/types';
 // import Popover from '@material-ui/core/Popover';
 
 const mapStateToProps = (store: any) => ({
-  bool: store.image.modalToggle,
+  modalToggle: store.image.modalToggle,
   modalURL: store.image.modalURL,
 });
 
@@ -28,14 +28,14 @@ const Image = (props: any) => (
     <div
       className="display"
       onClick={e => {
-        if (props.bool === false) {
+        if (props.modalToggle === false) {
           const changeObj: {} = {
             modalURL: props.image.webformatURL,
             modalToggle: true,
           };
           props.modalToggle(changeObj);
         }
-        if (props.bool === true) {
+        if (props.modalToggle === true) {
           const changeObj: {} = {
             modalURL: '',
             modalToggle: false,
