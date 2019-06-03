@@ -1,4 +1,5 @@
 import { actionTypes } from '../constants/actionTypes';
+import { ImageObj, ImageResults } from '../actions/types';
 
 interface Action {
   type: string;
@@ -6,9 +7,9 @@ interface Action {
 }
 
 interface ImageState {
-  myImages: any[];
-  searchImages: any[];
-  modalToggle: any;
+  myImages: ImageObj[];
+  searchImages: ImageResults[];
+  modalToggle: boolean;
   modalURL: string;
 }
 
@@ -20,7 +21,7 @@ const initialState: ImageState = {
 };
 
 const imageReducer = (state = initialState, action: Action) => {
-  let searchImages;
+  // let searchImages;
   switch (action.type) {
     case actionTypes.GET_PROFILE:
       return {

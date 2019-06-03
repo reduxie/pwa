@@ -8,6 +8,11 @@ export interface ImageObj {
   webformatURL: string;
 }
 
+export interface ModalObj {
+  modalURL: string;
+  modalToggle: boolean;
+}
+
 export interface ImageResults {
   results: ImageObj[] | [];
 }
@@ -36,21 +41,26 @@ export interface DeleteImageAsync {
   type: actionTypes.DELETE_IMAGE;
   payload: ImageObj;
 }
-//  export interface toggleModal   {
-//     type: actionTypes.TOGGLE_MODAL,
-//     payload: modalObj,
-//   },
-//  export interface DropModal: () => ({
-//     type: actionTypes.DROP_MODAL,
-//   }),
-//  export interface LoginUser: (userId: number, userName: string) => ({
-//     type: actionTypes.LOGIN,
-//     payload: { userId, userName },
-//   }),
-//  export interface LogoutUser: () => ({
-//     type: actionTypes.LOGOUT,
-//   }),
-//  export interface SignupUser: (userId: number, userName: string) => ({
-//     type: actionTypes.SIGNUP,
-//     payload: { userId, userName },
-//   }),
+
+export interface LoginUser {
+  type: actionTypes.LOGIN;
+  payload: { userId: number; userName: string };
+}
+
+export interface LogoutUser {
+  type: actionTypes.LOGOUT;
+}
+
+export interface SignupUser {
+  type: actionTypes.SIGNUP;
+  payload: { userId: number; userName: string };
+}
+
+export interface ToggleModal {
+  type: actionTypes.TOGGLE_MODAL;
+  payload: ModalObj;
+}
+
+export interface DropModal {
+  type: actionTypes.DROP_MODAL;
+}

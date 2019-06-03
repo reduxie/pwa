@@ -8,6 +8,12 @@ import {
   ImageObj,
   LikedImage,
   DeleteImageAsync,
+  LoginUser,
+  LogoutUser,
+  SignupUser,
+  ModalObj,
+  ToggleModal,
+  DropModal,
 } from './types';
 
 export const actions = {
@@ -31,21 +37,21 @@ export const actions = {
     type: actionTypes.DELETE_IMAGE,
     payload: image,
   }),
-  toggleModal: (modalObj: {}) => ({
+  toggleModal: (modalObj: ModalObj): ToggleModal => ({
     type: actionTypes.TOGGLE_MODAL,
     payload: modalObj,
   }),
-  dropModal: () => ({
+  dropModal: (): DropModal => ({
     type: actionTypes.DROP_MODAL,
   }),
-  loginUser: (userId: number, userName: string) => ({
+  loginUser: (userId: number, userName: string): LoginUser => ({
     type: actionTypes.LOGIN,
     payload: { userId, userName },
   }),
-  logoutUser: () => ({
+  logoutUser: (): LogoutUser => ({
     type: actionTypes.LOGOUT,
   }),
-  signupUser: (userId: number, userName: string) => ({
+  signupUser: (userId: number, userName: string): SignupUser => ({
     type: actionTypes.SIGNUP,
     payload: { userId, userName },
   }),
