@@ -10,13 +10,13 @@ import { ImageObj } from '../actions/types';
 // import Popover from '@material-ui/core/Popover';
 
 const mapStateToProps = (store: any) => ({
-  bool: store.image.modalBool,
+  bool: store.image.modalToggle,
   modalURL: store.image.modalURL,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  modalBool: (event: {}) => {
-    dispatch(actions.modalBool(event));
+  modalToggle: (event: {}) => {
+    dispatch(actions.modalToggle(event));
   },
   likedImage: (event: ImageObj) => {
     dispatch(actions.likedImage(event));
@@ -31,16 +31,16 @@ const Image = (props: any) => (
         if (props.bool === false) {
           const changeObj: {} = {
             modalURL: props.image.webformatURL,
-            modalBool: true,
+            modalToggle: true,
           };
-          props.modalBool(changeObj);
+          props.modalToggle(changeObj);
         }
         if (props.bool === true) {
           const changeObj: {} = {
             modalURL: '',
-            modalBool: false,
+            modalToggle: false,
           };
-          props.modalBool(changeObj);
+          props.modalToggle(changeObj);
         }
       }}
     >

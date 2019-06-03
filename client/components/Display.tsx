@@ -6,7 +6,7 @@ import Image from './DisplayImage';
 import { actions } from '../actions/actions';
 
 const mapStateToProps = (store: any) => ({
-  bool: store.image.modalBool,
+  bool: store.image.modalToggle,
   modalURL: store.image.modalURL,
 });
 

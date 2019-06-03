@@ -32,11 +32,11 @@ export interface LikedImage {
   payload: ImageObj;
 }
 
-//  export interface DeleteImageAsync   {
-//     type: actionTypes.DELETE_IMAGE,
-//     payload: ImageObj,
-//   }
-//  export interface ModalBool   {
+export interface DeleteImageAsync {
+  type: actionTypes.DELETE_IMAGE;
+  payload: ImageObj;
+}
+//  export interface modalToggle   {
 //     type: actionTypes.MODAL_BOOL,
 //     payload: modalObj,
 //   },

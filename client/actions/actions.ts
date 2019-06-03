@@ -7,6 +7,7 @@ import {
   GetProfile,
   ImageObj,
   LikedImage,
+  DeleteImageAsync,
 } from './types';
 
 export const actions = {
@@ -26,11 +27,11 @@ export const actions = {
     type: actionTypes.LIKED_IMAGE,
     payload: image,
   }),
-  deleteImageAsync: (image: ImageObj) => ({
+  deleteImageAsync: (image: ImageObj): DeleteImageAsync => ({
     type: actionTypes.DELETE_IMAGE,
     payload: image,
   }),
-  modalBool: (modalObj: {}) => ({
+  modalToggle: (modalObj: {}) => ({
     type: actionTypes.MODAL_BOOL,
     payload: modalObj,
   }),

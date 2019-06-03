@@ -10,7 +10,7 @@ interface IProps {
 }
 
 const mapStateToProps = (store: any) => ({
-  bool: store.image.modalBool,
+  bool: store.image.modalToggle,
   modalURL: store.image.modalURL,
 });
 
@@ -30,7 +30,7 @@ const ProfileDisplay: React.FC<IProps> = (props: any) => {
     );
   }
   const profileImageArr = [];
-  
+
   for (let i = 0; i < props.userLikes.length; i++) {
     profileImageArr.push(
       <ProfileImage

@@ -5,13 +5,13 @@ import { connect } from 'react-redux';
 import { actions } from '../actions/actions';
 
 const mapStateToProps = (store: any) => ({
-  bool: store.image.modalBool,
+  bool: store.image.modalToggle,
   modalURL: store.image.modalURL,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  modalBool: (event: {}) => {
-    dispatch(actions.modalBool(event));
+  modalToggle: (event: {}) => {
+    dispatch(actions.modalToggle(event));
   },
 });
 
@@ -23,16 +23,16 @@ const ProfileImage = (props: any) => (
         if (props.bool === false) {
           const changeObj: {} = {
             modalURL: props.userLikes.webformatURL,
-            modalBool: true,
+            modalToggle: true,
           };
-          props.modalBool(changeObj);
+          props.modalToggle(changeObj);
         }
         if (props.bool === true) {
           const changeObj: {} = {
             modalURL: '',
-            modalBool: false,
+            modalToggle: false,
           };
-          props.modalBool(changeObj);
+          props.modalToggle(changeObj);
         }
       }}
     >
