@@ -1,5 +1,12 @@
 import { actionTypes } from '../constants/actionTypes';
 
+export interface ImageState {
+  myImages: ImageObj[];
+  searchImages: ImageResults[];
+  modalToggle: boolean;
+  modalURL: string;
+}
+
 export interface ImageObj {
   id: number;
   likes: number;
