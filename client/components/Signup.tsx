@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 
-interface Props {
+interface IProps {
   signupUser: (un: string, pw: string) => void;
 }
 
-const SignupBox: React.FC<Props> = props => (
+const SignupBox: React.FC<IProps> = props => (
   <div>
     <input type="text" placeholder="username..." id="signupBoxUserName" />
     <input type="password" placeholder="password..." id="signupBoxPassword" />
-    {/* React prop-types issue */}
     <button
-      onClick={() => {
+      onClick={(e: any) => {
         const userNameText = document.getElementById(
           'signupBoxUserName'
         ) as HTMLInputElement;

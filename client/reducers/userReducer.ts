@@ -7,7 +7,7 @@ interface Action {
 
 interface DataState {
   searchWord: string;
-  userLikes: ImageObj[];
+  userLikes: any[];
   userId: number | null;
   userName: string | null;
 }

@@ -1,9 +1,8 @@
-/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import { connect } from 'react-redux';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import { actions } from '../actions/actions';
-import { ImageObj, ModalObj } from '../actions/types';
+import { ImageObj } from '../actions/types';
 
 const mapStateToProps = (store: any) => ({
   modalToggle: store.image.modalToggle,
@@ -11,7 +10,7 @@ const mapStateToProps = (store: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  toggleModal: (event: ModalObj) => {
+  toggleModal: (event: {}) => {
     dispatch(actions.toggleModal(event));
   },
   likedImage: (event: ImageObj) => {
@@ -25,25 +24,25 @@ const Image = (props: any) => (
       className="display"
       onClick={e => {
         if (props.modalToggle === false) {
-          const modalObj: {} = {
+          const changeObj: {} = {
             modalURL: props.image.webformatURL,
             modalToggle: true,
           };
-          props.toggleModal(modalObj);
+          props.toggleModal(changeObj);
         }
         if (props.modalToggle === true) {
-          const modalObj: {} = {
+          const changeObj: {} = {
             modalURL: '',
             modalToggle: false,
           };
-          props.toggleModal(modalObj);
+          props.toggleModal(changeObj);
         }
       }}
     >
       <img src={props.image.webformatURL} className="displayImage" />
     </div>
     <div className="displayImage">
-      <FavoriteIcon onClick={() => props.likedImage(props.image)} />
+      <FavoriteIcon onClick={event => props.likedImage(props.image)} />
     </div>
   </div>
 );
