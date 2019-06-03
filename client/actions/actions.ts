@@ -58,8 +58,8 @@ export const getSearchImageAsync = (searchWord: string) =>
     })
       .then(response => response.json())
       .then(response => {
-        console.log('response', response);
         dispatch(actions.getSearchImage(response));
+        dispatch(actions.saveSearch(''));
       });
   };
 
