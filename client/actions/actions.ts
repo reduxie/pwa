@@ -32,7 +32,7 @@ export const actions = {
     payload: image,
   }),
   modalToggle: (modalObj: {}) => ({
-    type: actionTypes.MODAL_BOOL,
+    type: actionTypes.MODAL_TOGGLE,
     payload: modalObj,
   }),
   dropModal: () => ({

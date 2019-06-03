@@ -37,7 +37,7 @@ export interface DeleteImageAsync {
   payload: ImageObj;
 }
 //  export interface modalToggle   {
-//     type: actionTypes.MODAL_BOOL,
+//     type: actionTypes.MODAL_TOGGLE,
 //     payload: modalObj,
 //   },
 //  export interface DropModal: () => ({
