@@ -15,8 +15,8 @@ const mapStateToProps = (store: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  modalToggle: (event: {}) => {
-    dispatch(actions.modalToggle(event));
+  toggleModal: (event: {}) => {
+    dispatch(actions.toggleModal(event));
   },
   likedImage: (event: ImageObj) => {
     dispatch(actions.likedImage(event));
@@ -33,14 +33,14 @@ const Image = (props: any) => (
             modalURL: props.image.webformatURL,
             modalToggle: true,
           };
-          props.modalToggle(changeObj);
+          props.toggleModal(changeObj);
         }
         if (props.modalToggle === true) {
           const changeObj: {} = {
             modalURL: '',
             modalToggle: false,
           };
-          props.modalToggle(changeObj);
+          props.toggleModal(changeObj);
         }
       }}
     >

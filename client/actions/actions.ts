@@ -31,8 +31,8 @@ export const actions = {
     type: actionTypes.DELETE_IMAGE,
     payload: image,
   }),
-  modalToggle: (modalObj: {}) => ({
-    type: actionTypes.MODAL_TOGGLE,
+  toggleModal: (modalObj: {}) => ({
+    type: actionTypes.TOGGLE_MODAL,
     payload: modalObj,
   }),
   dropModal: () => ({

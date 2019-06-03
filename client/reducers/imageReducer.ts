@@ -32,7 +32,7 @@ const imageReducer = (state = initialState, action: Action) => {
         ...state,
         searchImages: action.payload,
       };
-    case actionTypes.MODAL_TOGGLE:
+    case actionTypes.TOGGLE_MODAL:
       return {
         ...state,
         modalToggle: action.payload.modalToggle,
