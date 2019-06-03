@@ -4,7 +4,7 @@ import Profile from '../containers/ProfilePage';
 import Homepage from '../containers/HomePage';
 import LoginPage from '../containers/LoginPage';
 
-const App: React.FC<{}> = () => (
+const App: React.FC<{}> = (): any => (
   <Router>
     <Switch>
       <Route exact path="/" component={LoginPage} />
