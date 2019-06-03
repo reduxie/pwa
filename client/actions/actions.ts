@@ -1,29 +1,38 @@
 import { Dispatch } from 'redux';
 import { actionTypes } from '../constants/actionTypes';
+import {
+  SaveSearch,
+  GetSearchImage,
+  ImageResults,
+  GetProfile,
+  ImageObj,
+  LikedImage,
+  DeleteImageAsync,
+} from './types';
 
 export const actions = {
-  saveSearch: (data: string) => ({
+  saveSearch: (data: string): SaveSearch => ({
     type: actionTypes.SAVE_SEARCH,
     payload: data,
   }),
-  getSearchImage: (images: any[]) => ({
+  getSearchImage: (images: ImageResults): GetSearchImage => ({
     type: actionTypes.GET_SEARCH_IMAGE,
     payload: images,
   }),
-  getProfile: (images: any[]) => ({
+  getProfile: (images: ImageResults): GetProfile => ({
     type: actionTypes.GET_PROFILE,
     payload: images,
   }),
-  likedImage: (image: any) => ({
+  likedImage: (image: ImageObj): LikedImage => ({
     type: actionTypes.LIKED_IMAGE,
     payload: image,
   }),
-  deleteImageAsync: (image: any) => ({
+  deleteImageAsync: (image: ImageObj): DeleteImageAsync => ({
     type: actionTypes.DELETE_IMAGE,
     payload: image,
   }),
-  modalBool: (modalObj: {}) => ({
-    type: actionTypes.MODAL_BOOL,
+  toggleModal: (modalObj: {}) => ({
+    type: actionTypes.TOGGLE_MODAL,
     payload: modalObj,
   }),
   dropModal: () => ({
@@ -51,6 +60,7 @@ export const getSearchImageAsync = (searchWord: string) =>
       .then(response => response.json())
       .then(response => {
         dispatch(actions.getSearchImage(response));
+        dispatch(actions.saveSearch(''));
       });
   };
 
@@ -79,7 +89,6 @@ export const getLikedImageAsync = (image: any) =>
 
 export const deleteImageAsync = (image: any) =>
   function(dispatch: Dispatch) {
-    
     return fetch('http://localhost:3000/removeImageFromFavTable', {
       method: 'DELETE',
       headers: { 'content-type': 'application/json' },

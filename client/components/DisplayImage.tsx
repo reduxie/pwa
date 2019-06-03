@@ -1,23 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import Card from '@material-ui/core/Card';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import { actions } from '../actions/actions';
-// import { withStyles } from '@material-ui/core/styles';
-// import Typography from '@material-ui/core/Typography';
-// import Button from '@material-ui/core/Button';
-// import Popover from '@material-ui/core/Popover';
+import { ImageObj } from '../actions/types';
 
 const mapStateToProps = (store: any) => ({
-  bool: store.image.modalBool,
+  modalToggle: store.image.modalToggle,
   modalURL: store.image.modalURL,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  modalBool: (event: {}) => {
-    dispatch(actions.modalBool(event));
+  toggleModal: (event: {}) => {
+    dispatch(actions.toggleModal(event));
   },
-  likedImage: (event: {}) => {
+  likedImage: (event: ImageObj) => {
     dispatch(actions.likedImage(event));
   },
 });
@@ -27,19 +23,19 @@ const Image = (props: any) => (
     <div
       className="display"
       onClick={e => {
-        if (props.bool === false) {
+        if (props.modalToggle === false) {
           const changeObj: {} = {
             modalURL: props.image.webformatURL,
-            modalBool: true,
+            modalToggle: true,
           };
-          props.modalBool(changeObj);
+          props.toggleModal(changeObj);
         }
-        if (props.bool === true) {
+        if (props.modalToggle === true) {
           const changeObj: {} = {
             modalURL: '',
-            modalBool: false,
+            modalToggle: false,
           };
-          props.modalBool(changeObj);
+          props.toggleModal(changeObj);
         }
       }}
     >
