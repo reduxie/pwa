@@ -1,29 +1,3 @@
 {
-  "eslint.enable": true,
-  "eslint.run": "onSave",
-  "eslint.alwaysShowStatus": true,
-  "eslint.autoFixOnSave": true,
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    {
-      "language": "html",
-      "autoFix": true,
-    },
-    {
-      "language": "typescript",
-      "autoFix": true,
-    },
-    {
-      "language": "typescriptreact",
-      "autoFix": true,
-    }
-  ],
-  "editor.codeActionsOnSave": {
-  },
-  "prettier.eslintIntegration": true,
-  "prettier.jsxBracketSameLine": true,
-  "prettier.trailingComma": "es5",
-  "prettier.disableLanguages": ["javascript", "javascriptreact"],
-  "prettier.requireConfig": true,
+  "eslint.enable": true
 }
