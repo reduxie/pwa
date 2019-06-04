@@ -15,7 +15,7 @@ const Job = db.define('job', {
     type: Sequelize.STRING,
   },
   saved: {
-    type: Sequelize.modalToggleEAN,
+    type: Sequelize.BOOLEAN,
   },
 });
 
