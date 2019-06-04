@@ -1,11 +1,23 @@
 const path = require('path');
+const html = require('html-webpack-plugin');
+const workbox = require('workbox-webpack-plugin');
 
 module.exports = {
   entry: './client/index.tsx',
   output: {
     path: path.join(__dirname, '/build'),
     filename: './bundle.js',
+    publicPath: '/build/'
   },
+  plugins: [
+    new html({
+      template: './index.html',
+      filename: 'indexNew.html'
+    }),
+    new workbox.GenerateSW({
+      swDest: 'sw.js'
+    })
+  ],
   mode: process.env.NODE_ENV,
   module: {
     rules: [

@@ -13,6 +13,10 @@
 
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
+importScripts(
+  "/build/precache-manifest.88a6b8566480ce5ab82fb62ed5944922.js"
+);
+
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
@@ -24,10 +28,5 @@ self.addEventListener('message', (event) => {
  * requests for URLs in the manifest.
  * See https://goo.gl/S9QRab
  */
-self.__precacheManifest = [
-  {
-    "url": "bundle.js",
-    "revision": "8a90d6f63bc91aa03726916d340d6a74"
-  }
-].concat(self.__precacheManifest || []);
+self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
