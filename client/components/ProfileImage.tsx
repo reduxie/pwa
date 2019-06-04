@@ -1,62 +1,49 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import DeleteIcon from '@material-ui/icons/Delete';
+// import Card from '@material-ui/core/Card';
 import { connect } from 'react-redux';
-// import { string } from 'prop-types';
-// import { actions } from '../actions/actions';
-import { ImageObj, ImageState } from '../actions/types';
+import { actions } from '../actions/actions';
 
-const mapStateToProps = (store: ImageState) => ({
-  modalToggle: store.modalToggle,
-  modalURL: store.modalURL,
+const mapStateToProps = (store: any) => ({
+  bool: store.image.modalBool,
+  modalURL: store.image.modalURL,
 });
 
-// const mapDispatchToProps = (dispatch: (ModalObj: {}) => void) => ({
-//   toggleModal: (event: any) => {
-//     dispatch(actions.toggleModal(event));
-//   },
-// });
+const mapDispatchToProps = (dispatch: any) => ({
+  modalBool: (event: {}) => {
+    dispatch(actions.modalBool(event));
+  },
+});
 
-interface PProps {
-  modalToggle: boolean;
-  modalURL: string;
-  toggleModal: (ModalObj: {}) => void;
-  image: { webformatURL: string };
-  deleteImageAsync: (image: {}) => void;
-  userLikes: ImageObj[];
-}
-
-const ProfileImage = (props: PProps) => {
-  const { image, deleteImageAsync } = props;
-  return (
-    <div>
-      {/* <div
-        className="display"
-        onClick={e => {
-          if (modalToggle === false) {
-            const modalObj: {} = {
-              modalURL: userLikes.webformatURL,
-              modalToggle: true,
-            };
-            toggleModal(modalObj);
-          }
-          if (modalToggle === true) {
-            const modalObj: {} = {
-              modalURL: '',
-              modalToggle: false,
-            };
-            toggleModal(modalObj);
-          }
-        }}
-      > */}
-      <img src={image.webformatURL} alt="" className="displayImage" />
-      <div className="displayImage">
-        <DeleteIcon onClick={() => deleteImageAsync(image)} />
-      </div>
+const ProfileImage = (props: any) => (
+  <div>
+    <div
+      className="display"
+      onClick={e => {
+        if (props.bool === false) {
+          const changeObj: {} = {
+            modalURL: props.userLikes.webformatURL,
+            modalBool: true,
+          };
+          props.modalBool(changeObj);
+        }
+        if (props.bool === true) {
+          const changeObj: {} = {
+            modalURL: '',
+            modalBool: false,
+          };
+          props.modalBool(changeObj);
+        }
+      }}
+    >
+      <img src={props.image.webformatURL} className="displayImage" />
     </div>
-  );
-};
+    <div className="displayImage">
+      <DeleteIcon onClick={event => props.deleteImageAsync(props.image)} />
+    </div>
+  </div>
+);
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(ProfileImage);

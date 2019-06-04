@@ -21,7 +21,7 @@ const mapDispatchToProps = (dispatch: any) => ({
     dispatch(actions.saveSearch(event));
   },
 
-  getSearchImageAsync: (searchWord: string) => {
+  getSearchImage: (searchWord: string) => {
     dispatch(getSearchImageAsync(searchWord));
   },
   getProfile: (event: number) => {
@@ -34,10 +34,10 @@ const mapDispatchToProps = (dispatch: any) => ({
     dispatch(actions.logoutUser());
   },
 });
-interface HomepageProps {
+interface IProps {
   saveSearch: (e: any) => void;
   addSearch: (e: any) => void;
-  getSearchImageAsync: (searchWord: string) => void;
+  getSearchImage: (searchWord: string) => void;
   getProfile: (e: any) => void;
   likedImage?: (images: any) => void;
   searchWord: string;
@@ -46,12 +46,12 @@ interface HomepageProps {
   logoutUser: () => void;
 }
 
-const Homepage: React.FC<HomepageProps> = props => (
+const Homepage: React.FC<IProps> = props => (
   <div id="homepage">
     <h1>Home Page</h1>
     <Search
       saveSearch={props.saveSearch}
-      getSearchImageAsync={props.getSearchImageAsync}
+      getSearchImage={props.getSearchImage}
       searchWord={props.searchWord}
     />
     <Display images={props.images} likedImage={props.likedImage} />

@@ -1,13 +1,34 @@
 module.exports = {
+  env: {
+    browser: true,
+    es6: true,
+    node: true,
+  },
+  extends: 'airbnb',
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+  },
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 2018,
+    sourceType: 'module',
+  },
+  plugins: [
+    'react',
+  ],
+  rules: {
+  },
+};
+module.exports = {
   "extends": [
     "airbnb",
     "prettier",
-    "prettier/react",
-    "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
-    "plugin:import/typescript"
+    "prettier/react"
   ],
-  "parser": "@typescript-eslint/parser",
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 2018,
     // Can I remove these now?
@@ -23,7 +44,6 @@ module.exports = {
     "jest": true
   },
   "rules": {
-    "@typescript-eslint/explicit-function-return-type": 0, 
     "no-debugger": 0,
     "no-alert": 0,
     "no-await-in-loop": 0,
@@ -89,8 +109,7 @@ module.exports = {
       {
         "extensions": [
           ".js",
-          ".jsx",
-          ".tsx"
+          ".jsx"
         ]
       }
     ],
@@ -140,8 +159,6 @@ module.exports = {
   "plugins": [
     "html",
     "prettier",
-    "react-hooks",
-    "@typescript-eslint",
-    "import"
+    "react-hooks"
   ]
 }
