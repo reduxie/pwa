@@ -35,6 +35,14 @@ app.use(function(
   return next();
 });
 
+if (process.env.NODE_ENV === 'production') {
+  app.use('/build', express.static(path.resolve(__dirname, '../build')));
+  app.use('/client', express.static(path.resolve(__dirname, '../client')));
+  app.get('/', (req: express.Request, res: express.Response) => {
+    res.sendFile(path.resolve(__dirname, '../index.html'));
+  });
+}
+
 app.get(
   '/getDbImages',
   getDbImagesController,

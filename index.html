@@ -2,7 +2,8 @@
   <head>
     <meta charset="UTF-8" />
     <title>Reduxie</title>
-    <link rel="stylesheet" href="./client/reduxie.css">
+    <link rel="manifest" href="./build/manifest.json" />
+    <link rel="stylesheet" href="./client/reduxie.css" />
   </head>
   <body>
     <div class="wrapper">
@@ -12,6 +13,16 @@
 
     <!-- script for webpack and webpack-dev-server challenge -->
     <script src="build/bundle.js"></script>
+
+    <script>
+      // Check that service workers are registered
+      if ('serviceWorker' in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('build/sw.js');
+        });
+      }
+    </script>
 
     <!-- uncomment below and comment out the tag above for gulp/browserify challenge -->
     <!-- <script src="build/browserify-bundle.js"></script> -->
