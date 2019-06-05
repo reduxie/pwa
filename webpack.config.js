@@ -9,15 +9,6 @@ module.exports = {
     filename: './bundle.js',
     publicPath: '/build/'
   },
-  plugins: [
-    new html({
-      template: './index.html',
-      filename: 'indexNew.html'
-    }),
-    new workbox.GenerateSW({
-      swDest: 'sw.js'
-    })
-  ],
   mode: process.env.NODE_ENV,
   module: {
     rules: [
