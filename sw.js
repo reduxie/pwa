@@ -1,6 +1,7 @@
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.0.0/workbox-sw.js');
 
 workbox.precaching.precacheAndRoute([
+
   {
     "url": "index.html",
     "revision": "a40871df1e3a91dd14b9e21363d4cc71"
