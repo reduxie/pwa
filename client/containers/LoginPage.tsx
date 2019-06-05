@@ -49,7 +49,7 @@ const LoginPage: React.FC<IProps> = (props) => {
         (
         <div>
           <h1> Welcome to Mr. JBABY!'s Pinterest Clone! </h1>
-          <LoginBox loginUser={props.loginUser}> </LoginBox>
+          <LoginBox loginUser={props.loginUser} > </LoginBox>
           <SignupBox signupUser={props.signupUser}> </SignupBox>
         </div>
         )

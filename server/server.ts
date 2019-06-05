@@ -36,6 +36,9 @@ app.use(function(
 });
 
 if (process.env.NODE_ENV === 'production') {
+  // app.get('*', (request, response) => {
+  //   response.sendFile(path.resolve(__dirname, 'index.html'))
+  // });
   app.use('/build', express.static(path.resolve(__dirname, '../build')));
   app.use('/client', express.static(path.resolve(__dirname, '../client')));
   app.get('/', (req: express.Request, res: express.Response) => {

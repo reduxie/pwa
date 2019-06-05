@@ -50,6 +50,9 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js', '.json'],
   },
   devServer: {
+    historyApiFallback: {
+      index: './index.html'
+    },
     port: 8080,
     proxy: {
       '/api': 'http://localhost:3000/',

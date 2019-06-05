@@ -1,5 +1,27 @@
+@import url("https://fonts.googleapis.com/css?family=Oleo+Script&display=swap"); 
+
 body {
   width: 100%;
+}
+
+h1 {
+  font-family: 'Oleo Script', cursive;
+  color: red;
+  font-size: 60px;
+}
+
+#loginContainer {
+  display: flex;
+  margin: 0 auto;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.loginBox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 #homepage {
