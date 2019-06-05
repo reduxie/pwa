@@ -48,7 +48,7 @@ interface IProps {
 
 const Homepage: React.FC<IProps> = props => (
   <div id="homepage">
-    <h1>Home Page</h1>
+    <h1 className="title">Home Page</h1>
     <Search
       saveSearch={props.saveSearch}
       getSearchImage={props.getSearchImage}

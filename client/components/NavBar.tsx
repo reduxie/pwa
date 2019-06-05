@@ -25,7 +25,9 @@ const NavBar: React.FC<INav> = props => (
         PROFILE
       </button>
     </Link>
+    <Link to="/profile">
     <button className="navbutton">NOTIFICATIONS</button>
+    </Link>
     <Link to="/">
       <button className="navbutton" onClick={() => props.logoutUser()}>
         LOGOUT

@@ -5,9 +5,9 @@ interface IProps {
 }
 
 const SignupBox: React.FC<IProps> = props => (
-  <div>
-    <input type="text" placeholder="username..." id="signupBoxUserName" />
-    <input type="password" placeholder="password..." id="signupBoxPassword" />
+  <div className="loginContainer">
+    <input type="text" placeholder="username..." id="signupBoxUserName" className="loginBox" />
+    <input type="password" placeholder="password..." id="signupBoxPassword" className="loginBox" />
     <button
       onClick={(e: any) => {
         const userNameText = document.getElementById(

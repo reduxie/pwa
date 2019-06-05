@@ -8,7 +8,7 @@ interface IProps {
 
 const LoginBox: React.FC<IProps> = (props) => {
   return (
-    <div id="loginContainer">
+    <div className="loginContainer">
       <input type="text" placeholder="username..." id="loginBoxUserName" className="loginBox" />
       <input type="password" placeholder="password..." id="loginBoxPassword" className="loginBox" />
       <button onClick={(e:any) => {

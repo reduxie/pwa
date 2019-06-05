@@ -47,8 +47,8 @@ const LoginPage: React.FC<IProps> = (props) => {
       return props.userId ?
         (<Redirect to="/home"></Redirect>) :
         (
-        <div>
-          <h1> Welcome to Mr. JBABY!'s Pinterest Clone! </h1>
+        <div id="login">
+          <h1 className="title"> Welcome to Mr. JBABY!'s Pinterest Clone! </h1>
           <LoginBox loginUser={props.loginUser} > </LoginBox>
           <SignupBox signupUser={props.signupUser}> </SignupBox>
         </div>
