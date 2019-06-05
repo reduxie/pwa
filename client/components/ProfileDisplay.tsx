@@ -43,7 +43,7 @@ const ProfileDisplay: React.FC<IProps> = (props: any) => {
   return (
     <div>
       {modal}
-      <div id="profilePage">{profileImageArr}</div>
+      <div className="display">{profileImageArr}</div>
     </div>
   );
 };

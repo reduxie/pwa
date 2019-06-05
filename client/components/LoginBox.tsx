@@ -18,7 +18,7 @@ const LoginBox: React.FC<IProps> = (props) => {
           userNameText.value,
           passwordText.value
         )
-    }}>Login</button>
+    }} className="loginButton">Login</button>
     </div>
   )
 }

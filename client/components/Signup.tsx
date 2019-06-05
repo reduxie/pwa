@@ -18,7 +18,7 @@ const SignupBox: React.FC<IProps> = props => (
         ) as HTMLInputElement;
         props.signupUser(userNameText.value, passwordText.value);
       }}
-    >
+    className="loginButton">
       Signup
     </button>
   </div>

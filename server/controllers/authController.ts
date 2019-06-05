@@ -14,6 +14,7 @@ loginUser:  ( req: express.Request, res: express.Response, next: express.NextFun
               pool.query(query, (err: any, data: any) => {
                 if (err || data.rows.length === 0) {
                   console.log("error in authController loginUser");
+                  console.log(err);
                   return res.send(404);
                 } else {
 
