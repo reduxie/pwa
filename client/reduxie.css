@@ -1,5 +1,35 @@
+@import url("https://fonts.googleapis.com/css?family=Oleo+Script&display=swap"); 
+
 body {
   width: 100%;
+}
+
+#login {
+  margin-top: 20%;
+}
+.title {
+  font-family: 'Oleo Script', cursive;
+  color: red;
+  font-size: 60px;
+  margin: 0 auto;
+}
+
+.loginContainer {
+  display: flex;
+  margin: 0 auto;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 25%;
+}
+
+.loginBox {
+  margin: 10px 0;
+  height: 25px;
+}
+
+.loginContainer button {
+  width: 58px;
 }
 
 #homepage {
@@ -66,10 +96,14 @@ h1 {
 
 
 .navbutton {
-  padding: 10px;
-  margin: 10px;
+  width: 125px;
+  /* padding: 10px; */
+  /* margin: 10px; */
+  height: 25px;;
   border-radius: 4px;
+  margin-top: 25px;
 }
+
 
 .display {
   width: 100%;

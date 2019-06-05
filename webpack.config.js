@@ -43,13 +43,16 @@ module.exports = {
             loader: 'css-loader',
           },
         ],
-      },
+      }
     ],
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.json'],
+    extensions: ['.ts', '.tsx', '.js', '.json', '.css'],
   },
   devServer: {
+    historyApiFallback: {
+      index: './index.html'
+    },
     port: 8080,
     proxy: {
       '/api': 'http://localhost:3000/',

@@ -35,7 +35,7 @@ interface IProfile {
 const Profile: React.FC<IProfile> = props => (
   // console.log('userLikes:\n', props.userLikes);
   <div>
-    <h1>Profile Page</h1>
+    <h1 className="title">Profile Page</h1>
     <ProfileDisplay
       userLikes={props.userLikes}
       deleteImageAsync={props.deleteImageAsync}

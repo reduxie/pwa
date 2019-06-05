@@ -35,13 +35,28 @@ app.use(function(
   return next();
 });
 
+
 if (process.env.NODE_ENV === 'production') {
-  app.use('/build', express.static(path.resolve(__dirname, '../build')));
-  app.use('/client', express.static(path.resolve(__dirname, '../client')));
   app.get('/', (req: express.Request, res: express.Response) => {
     res.sendFile(path.resolve(__dirname, '../index.html'));
   });
+  app.use('/build', express.static(path.resolve(__dirname, '../build')));
+  app.use('/client', express.static(path.resolve(__dirname, '../client')));
 }
+
+// two app.get is for the service workers. 
+app.get('/sw.js', (req: express.Request, res: express.Response) => {
+  res.sendFile(path.resolve(__dirname, '../sw.js'));
+});
+
+app.get('/index.html', (req: express.Request, res: express.Response) => {
+  res.sendFile(path.resolve(__dirname, '../index.html'));
+});
+
+app.get('/client', (req: express.Request, res: express.Response) => {
+  res.sendFile(path.resolve(__dirname, '../client/reduxie.css'));
+});
+
 
 app.get(
   '/getDbImages',
