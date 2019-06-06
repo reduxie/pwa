@@ -16,9 +16,8 @@ const mapDispatchToProps = (dispatch: any) => ({
 });
 
 const ProfileImage = (props: any) => (
-  <div>
+  <div className="displayImage">
     <div
-      className="display"
       onClick={e => {
         if (props.bool === false) {
           const changeObj: {} = {
@@ -36,9 +35,9 @@ const ProfileImage = (props: any) => (
         }
       }}
     >
-      <img src={props.image.webformatURL} className="displayImage" />
+      <img className="image" src={props.image.webformatURL} />
     </div>
-    <div className="displayImage">
+    <div className="logo">
       <DeleteIcon onClick={event => props.deleteImageAsync(props.image)} />
     </div>
   </div>
